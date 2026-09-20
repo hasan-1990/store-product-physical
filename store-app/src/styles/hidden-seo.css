@@ -1,0 +1,71 @@
+/* SEO Hidden Content Styles */
+.seo-hidden-content {
+  /* اطمینان از عدم نمایش برای کاربران */
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  
+  /* عدم تأثیر روی layout */
+  display: block !important;
+  float: none !important;
+  
+  /* عدم نمایش در print */
+  @media print {
+    display: none !important;
+  }
+}
+
+/* تنظیمات خاص برای screen readers */
+.seo-hidden-content[aria-hidden="true"] {
+  speak: none;
+}
+
+/* فقط برای debugging - حذف کنید در production */
+.show-hidden-seo .seo-hidden-content {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  background: rgba(255, 255, 0, 0.1) !important;
+  border: 1px dashed #ccc !important;
+  padding: 10px !important;
+  margin: 10px 0 !important;
+}
+
+/* محتوای ساختارمند مخفی */
+.hidden-structured-content {
+  /* هیچ style خاصی نیاز نیست - parent class کافی است */
+}
+
+.hidden-keywords {
+  /* هیچ style خاصی نیاز نیست */
+}
+
+.hidden-description {
+  /* هیچ style خاصی نیاز نیست */
+}
+
+.hidden-title {
+  /* هیچ style خاصی نیاز نیست */
+}
+
+.hidden-categories {
+  /* هیچ style خاصی نیاز نیست */
+}
+
+.hidden-features {
+  /* هیچ style خاصی نیاز نیست */
+}

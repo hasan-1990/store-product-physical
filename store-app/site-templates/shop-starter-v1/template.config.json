@@ -1,0 +1,30 @@
+{
+  "slug": "shop-starter-v1",
+  "name": "میوز — فروشگاه لوازم آرایشی",
+  "version": "1.0.0",
+  "shortDescription": "قالب RTL لوکس برای فروشگاه آنلاین لوازم آرایشی و مراقبت پوست",
+  "description": "قالب RTL لوکس برای فروشگاه آنلاین لوازم آرایشی و مراقبت پوست با طراحی Luminous Editorial. شامل صفحه اصلی، لیست محصولات، جزئیات محصول، پنل کاربری، sitemap و SEO کامل.",
+  "thumbnail": "/images/hero.jpg",
+  "previewImage": "/images/hero.jpg",
+  "demoUrl": "",
+  "active": true,
+  "features": [
+    "طراحی RTL فارسی",
+    "صفحه اصلی کامل با هیرو، دسته‌بندی، پرفروش‌ها، نظرات و مجله",
+    "صفحه لیست محصولات با فیلتر و مرتب‌سازی",
+    "صفحه جزئیات محصول با JSON-LD",
+    "پنل کاربری با پیشخوان، سفارش‌ها، آدرس‌ها و علاقه‌مندی‌ها",
+    "صفحه سبد خرید و تسویه حساب با فرم ارسال و پرداخت",
+    "پنل مدیریت MUSE Admin با پیشخوان، تحلیل، محصولات و سفارشات",
+    "sitemap.xml و robots.txt",
+    "قفل دامنه از طریق middleware",
+    "Tailwind CSS با پالت Luminous Editorial"
+  ],
+  "seo": {
+    "title": "قالب فروشگاه میوز | Managed Site",
+    "description": "قالب آماده فروشگاه آنلاین لوازم آرایشی با SEO، RTL و طراحی لوکس",
+    "keywords": "قالب فروشگاه, لوازم آرایشی, RTL, managed site, میوز",
+    "ogImage": "/images/hero.jpg",
+    "canonicalUrl": "/templates/shop-starter-v1"
+  }
+}

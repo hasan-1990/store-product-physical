@@ -1,0 +1,125 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Store App API",
+    "description": "APIهای عمومی فروشگاه — نسخه Q4 2026",
+    "version": "1.0.0"
+  },
+  "servers": [
+    { "url": "/api", "description": "Same origin" }
+  ],
+  "tags": [
+    { "name": "health", "description": "سلامت و monitoring" },
+    { "name": "catalog", "description": "محصولات و SEO" },
+    { "name": "cart", "description": "سبد خرید" }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": ["health"],
+        "summary": "Health check",
+        "responses": {
+          "200": { "description": "سرویس سالم" },
+          "503": { "description": "سرویس ناسالم" }
+        }
+      }
+    },
+    "/health/deploy": {
+      "get": {
+        "tags": ["health"],
+        "summary": "چک‌لیست deploy production",
+        "responses": {
+          "200": { "description": "آماده deploy" },
+          "503": { "description": "نیاز به اصلاح env" }
+        }
+      }
+    },
+    "/health/scale": {
+      "get": {
+        "tags": ["health"],
+        "summary": "آمادگی Scale (Redis, backup, CDN, Sentry)",
+        "responses": {
+          "200": { "description": "Scale ready" },
+          "503": { "description": "موارد scale ناقص" }
+        }
+      }
+    },
+    "/openapi": {
+      "get": {
+        "tags": ["health"],
+        "summary": "این مشخصات OpenAPI",
+        "responses": {
+          "200": { "description": "OpenAPI JSON" }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "لیست محصولات",
+        "parameters": [
+          { "name": "page", "in": "query", "schema": { "type": "integer" } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer" } },
+          { "name": "category", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "لیست محصولات" }
+        }
+      }
+    },
+    "/seo": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "داده SEO صفحه",
+        "parameters": [
+          { "name": "url", "in": "query", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "متادیتای SEO" }
+        }
+      }
+    },
+    "/cart": {
+      "get": {
+        "tags": ["cart"],
+        "summary": "دریافت سبد",
+        "parameters": [
+          { "name": "sessionId", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "سبد خرید" }
+        }
+      },
+      "post": {
+        "tags": ["cart"],
+        "summary": "افزودن به سبد",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productId": { "type": "string" },
+                  "quantity": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "سبد به‌روز شد" }
+        }
+      }
+    },
+    "/mega-menu": {
+      "get": {
+        "tags": ["catalog"],
+        "summary": "منوی مگا",
+        "responses": {
+          "200": { "description": "ساختار منو" }
+        }
+      }
+    }
+  }
+}

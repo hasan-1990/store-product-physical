@@ -1,0 +1,87 @@
+# ==============================================================================
+# Store-App Git Ignore (Configured for clean GitHub Presentation & Deployment)
+# ==============================================================================
+
+# --- Sensitive Environment & Secrets (CRITICAL) ---
+.env*
+!.env.example
+!.env.email.example
+!.env.production.example
+!.env.smtp.example
+
+# --- SSL Certificates & Private Keys (CRITICAL) ---
+ssl/
+*.pem
+*.key
+*.crt
+*.csr
+*.pfx
+*.p12
+
+# --- Database Backups & Data Dumps (CRITICAL) ---
+database-backup/
+*.wt
+*.turtle
+*.lock
+*.bson
+*.dump
+*.sql
+*.sqlite
+
+# --- Dependencies ---
+node_modules/
+.pnp
+.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+
+# --- Next.js & Build Outputs ---
+.next/
+.next-rocket-cache/
+out/
+build/
+dist/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# --- User Uploads & Generated Media ---
+public/uploads/
+uploads/
+licensed-files/
+provisioned-sites/*
+!provisioned-sites/README.md
+duplicator-domain-lock/locked-backups/
+duplicator-domain-lock/locked-cache/
+
+# --- Logs & Diagnostics ---
+logs/
+diagnostics/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Temporary Files ---
+temp/
+temp-missing/
+*.tmp
+*.temp
+%USERPROFILE%/
+
+# --- Testing & Coverage ---
+coverage/
+
+# --- IDEs & OS Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.cursor/
+.qodo/
+.claude/
+.mcp-data/

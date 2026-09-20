@@ -1,0 +1,11 @@
+{
+  "urlStructure": "category-product",
+  "categoryPrefix": "",
+  "productPrefix": "",
+  "removeStopWords": false,
+  "slugLanguage": "english",
+  "maxSlugLength": 50,
+  "separatorType": "-",
+  "includeId": true,
+  "removeNumbers": false
+}

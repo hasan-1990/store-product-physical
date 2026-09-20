@@ -1,0 +1,41 @@
+# Production image — Express core-server only (no Next.js)
+FROM node:22-alpine AS deps
+
+WORKDIR /app
+
+RUN apk add --no-cache libc6-compat
+
+COPY package*.json ./
+COPY patches ./patches
+
+RUN npm ci && npm cache clean --force
+
+FROM node:22-alpine AS runner
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV CORE_SERVER_PORT=4000
+ENV HOSTNAME=0.0.0.0
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S core -u 1001 -G nodejs && \
+    mkdir -p provisioned-sites nginx/sites logs public/uploads && \
+    chown -R core:nodejs /app
+
+COPY --from=deps --chown=core:nodejs /app/node_modules ./node_modules
+COPY --chown=core:nodejs package*.json tsconfig.json ./
+COPY --chown=core:nodejs packages ./packages
+COPY --chown=core:nodejs site-templates ./site-templates
+COPY --chown=core:nodejs public ./public
+COPY --chown=core:nodejs scripts ./scripts
+
+USER core
+
+EXPOSE 4000
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=45s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:4000/api/health || exit 1
+
+CMD ["npx", "tsx", "packages/core-server/src/server.ts"]

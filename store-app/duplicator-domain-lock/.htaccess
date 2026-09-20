@@ -1,0 +1,49 @@
+# Protect sensitive files
+<Files "DomainLockValidator.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "lock-backup-tool.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "process-lock.php">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+<Files "test-system.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "domain-lock.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Protect locked backups directory from listing
+Options -Indexes
+
+# Allow only specific file types
+<FilesMatch "\.(html|php|zip)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Disable PHP execution in uploads directory
+<Directory "locked-backups">
+    php_flag engine off
+    Options -ExecCGI
+    AddHandler cgi-script .php .pl .py .jsp .asp .sh .cgi
+    RemoveHandler .php
+</Directory>

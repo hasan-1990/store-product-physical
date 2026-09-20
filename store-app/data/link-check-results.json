@@ -1,0 +1,41 @@
+{
+  "lastCheck": "2025-09-18T12:21:01.227Z",
+  "totalLinks": 4,
+  "workingLinks": 3,
+  "brokenLinks": 1,
+  "results": [
+    {
+      "url": "https://google.com",
+      "status": 200,
+      "statusText": "OK",
+      "responseTime": 858,
+      "isWorking": true,
+      "lastChecked": "2025-09-18T12:20:57.858Z"
+    },
+    {
+      "url": "https://github.com",
+      "status": 200,
+      "statusText": "OK",
+      "responseTime": 784,
+      "isWorking": true,
+      "lastChecked": "2025-09-18T12:20:58.784Z"
+    },
+    {
+      "url": "https://stackoverflow.com",
+      "status": 200,
+      "statusText": "OK",
+      "responseTime": 115,
+      "isWorking": true,
+      "lastChecked": "2025-09-18T12:21:00.115Z"
+    },
+    {
+      "url": "https://invalid-domain-that-does-not-exist.com",
+      "status": 0,
+      "statusText": "خطا در اتصال",
+      "responseTime": 0,
+      "isWorking": false,
+      "error": "fetch failed",
+      "lastChecked": "2025-09-18T12:21:00.725Z"
+    }
+  ]
+}

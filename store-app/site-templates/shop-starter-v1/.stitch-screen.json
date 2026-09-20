@@ -1,0 +1,28 @@
+﻿{
+    "id":  1,
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"name\":\"projects/3080141817154658487/screens/2c45109fd7704d12a69ad7970c208b74\",\"title\":\"جزئیات محصول - سرم جوانساز\",\"screenshot\":{\"name\":\"projects/3080141817154658487/files/7ad7973acdd04ca49b9281c1676b4def\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLsOB-GuYngNHJljrmI3F8Z0RfDvHnpp3I3wsFFKESOl_5CJvY5HddPlEO9S3750amSjqmuQz_QkQo4ovFae8L9zy31p653MZ9sszggsOe20gxHgfXg6eKHXyAuOxyjRjcHySf6D3I5syInq4j9yF3AaO2dzOe5X28YlKQfmlqGtmTvB9Eo-ozyBT6kKKpFfoERPhyuGx-rQ__A5k0II2UQMd5gI3YdN_hmq6MtbkWSmQvKq7XnoIO8tnQ\"},\"htmlCode\":{\"name\":\"projects/3080141817154658487/files/89e48e620d0c46d2b19ab0323cb272de\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzMwZGJhYTI1OWU0YTQzZTU5YTA1MWU1Y2EyM2NiODkzEgsSBxCR5_i8ghUYAZIBIwoKcHJvamVjdF9pZBIVQhMzMDgwMTQxODE3MTU0NjU4NDg3\u0026filename=\u0026opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"5848\",\"deviceType\":\"DESKTOP\"}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "deviceType":  "DESKTOP",
+                                             "height":  "5848",
+                                             "htmlCode":  {
+                                                              "downloadUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzMwZGJhYTI1OWU0YTQzZTU5YTA1MWU1Y2EyM2NiODkzEgsSBxCR5_i8ghUYAZIBIwoKcHJvamVjdF9pZBIVQhMzMDgwMTQxODE3MTU0NjU4NDg3\u0026filename=\u0026opi=89354086",
+                                                              "mimeType":  "text/html",
+                                                              "name":  "projects/3080141817154658487/files/89e48e620d0c46d2b19ab0323cb272de"
+                                                          },
+                                             "name":  "projects/3080141817154658487/screens/2c45109fd7704d12a69ad7970c208b74",
+                                             "screenshot":  {
+                                                                "downloadUrl":  "https://lh3.googleusercontent.com/aida/AP1WRLsOB-GuYngNHJljrmI3F8Z0RfDvHnpp3I3wsFFKESOl_5CJvY5HddPlEO9S3750amSjqmuQz_QkQo4ovFae8L9zy31p653MZ9sszggsOe20gxHgfXg6eKHXyAuOxyjRjcHySf6D3I5syInq4j9yF3AaO2dzOe5X28YlKQfmlqGtmTvB9Eo-ozyBT6kKKpFfoERPhyuGx-rQ__A5k0II2UQMd5gI3YdN_hmq6MtbkWSmQvKq7XnoIO8tnQ",
+                                                                "name":  "projects/3080141817154658487/files/7ad7973acdd04ca49b9281c1676b4def"
+                                                            },
+                                             "title":  "جزئیات محصول - سرم جوانساز",
+                                             "width":  "2560"
+                                         }
+               }
+}

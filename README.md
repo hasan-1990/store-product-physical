@@ -386,5 +386,3 @@ npm start
 ## 📄 License
 This project is licensed under the MIT License.
 Developed with ❤️ by the FaThemes Engineering Team.
-#   s t o r e - p r o d u c t - p h y s i c a l  
- 

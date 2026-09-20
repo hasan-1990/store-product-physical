@@ -1,0 +1,302 @@
+<!DOCTYPE html><html class="light" dir="rtl" lang="fa"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#524348",
+                    "tertiary": "#5e5f5d",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container": "#f0eded",
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "surface-variant": "#e4e2e1",
+                    "secondary-fixed": "#ffe088",
+                    "outline": "#7f7477",
+                    "inverse-surface": "#303030",
+                    "primary-fixed-dim": "#d7c1c7",
+                    "on-secondary-fixed": "#241a00",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#574500",
+                    "secondary": "#735c00",
+                    "surface-container-highest": "#e4e2e1",
+                    "tertiary-container": "#e8e7e4",
+                    "surface-bright": "#fcf9f8",
+                    "tertiary-fixed-dim": "#c7c6c4",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#e3e2e0",
+                    "on-tertiary-container": "#676765",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#24181c",
+                    "primary-container": "#f8e1e7",
+                    "on-tertiary-fixed": "#1a1c1a",
+                    "on-primary-container": "#746368",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "on-surface-variant": "#4d4447",
+                    "inverse-primary": "#d7c1c7",
+                    "on-secondary-container": "#745c00",
+                    "error-container": "#ffdad6",
+                    "primary": "#6b5a5f",
+                    "primary-fixed": "#f4dde3",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#464745",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#eae7e7",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#fed65b",
+                    "inverse-on-surface": "#f3f0f0",
+                    "background": "#fcf9f8",
+                    "surface-tint": "#6b5a5f",
+                    "outline-variant": "#d0c3c6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans", "system-ui"],
+                    "headline-md": ["Playfair Display", "serif"],
+                    "display-lg-mobile": ["Playfair Display", "serif"],
+                    "headline-md-mobile": ["Playfair Display", "serif"],
+                    "display-lg": ["Playfair Display", "serif"],
+                    "body-lg": ["Plus Jakarta Sans", "system-ui"],
+                    "title-lg": ["Plus Jakarta Sans", "system-ui"],
+                    "body-md": ["Plus Jakarta Sans", "system-ui"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', 'Vazirmatn', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .active-nav-bg { position: absolute; right: 0; top: 0; bottom: 0; width: 4px; border-radius: 0 4px 4px 0; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d0c3c6; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-sm opacity-5">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-on-surface dark:text-inverse-on-surface">MUSE</span>
+<div class="hidden md:flex gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Skincare</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Makeup</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Hair</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Fragrance</a>
+</div>
+</div>
+<div class="flex items-center gap-5 text-primary">
+<span class="material-symbols-outlined cursor-pointer hover:scale-95 transition-transform">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:scale-95 transition-transform text-secondary border-b-1.5 border-secondary">person</span>
+<span class="material-symbols-outlined cursor-pointer hover:scale-95 transition-transform">shopping_bag</span>
+</div>
+</div>
+</nav>
+<!-- Main Container -->
+<main class="pt-[100px] pb-section-gap max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop min-h-screen flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Navigation -->
+<aside class="w-full md:w-64 flex-shrink-0 flex flex-col gap-6">
+<div class="flex items-center gap-4 mb-4 p-2">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A sophisticated editorial headshot of a person with glowing skin and elegant makeup, shot in a high-key minimalist studio setting with soft warm lighting. The background is a clean cream color, emphasizing a luxury beauty brand aesthetic. The photography is sharp and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE9GUIeHMrAPQFNIpTteQaz-i5th6wlfmhfwG7Zr6rExSNX31RWJd-OLY51wbXg-pOTSF1_FAA36f8f3Jt7UrG2BzKyCLQ4G82FHpEqfgJN2HEzDxxaxUujjxMNZm2gHT2i-HfB6nG_dSvD9ybP1RFiNsHPZOfBAJQyhQT8-PvnX0zToxqNjzmT9J_ewhCvq2ecOPB5JtV-kKmscBQ7ZRNitE6hmW7B9iKX6Dnp5V099bo7fND1NE436RjaZd4zprpnbrGzejK_-k">
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface leading-tight">سارا احمدی</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">عضو طلایی</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="group relative flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-body-md text-body-md">پیشخوان</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-body-md text-body-md">سفارش‌های من</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-body-md text-body-md">آدرس‌ها</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-body-md text-body-md">علاقه‌مندی‌ها</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">تنظیمات حساب</span>
+</a>
+<hr class="my-4 border-outline-variant opacity-30">
+<a class="group flex items-center gap-3 px-4 py-3 rounded-lg text-error hover:bg-error-container transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">خروج</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-grow flex flex-col gap-8">
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10 flex items-center justify-between" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">امتیاز باشگاه مشتریان</p>
+<h3 class="font-headline-md text-headline-md-mobile md:text-headline-md text-secondary">۲,۴۵۰</h3>
+</div>
+<span class="material-symbols-outlined text-secondary bg-secondary-fixed/30 p-3 rounded-full">stars</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10 flex items-center justify-between" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.1s;">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">مجموع سفارش‌ها</p>
+<h3 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">۱۲</h3>
+</div>
+<span class="material-symbols-outlined text-primary bg-primary-fixed/30 p-3 rounded-full">local_mall</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10 flex items-center justify-between" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">کالاهای مورد علاقه</p>
+<h3 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">۸</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant bg-surface-variant p-3 rounded-full">favorite</span>
+</div>
+</div>
+<!-- Recent Orders Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 overflow-hidden">
+<div class="px-6 py-5 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface">سفارش‌های اخیر</h3>
+<button class="text-secondary font-label-sm text-label-sm hover:underline">مشاهده همه</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right">
+<thead>
+<tr class="bg-surface-container-low" style="opacity: 1; transform: translateY(0px); transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.3s;">
+<th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant">شماره سفارش</th>
+<th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant">تاریخ</th>
+<th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant">مبلغ کل</th>
+<th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant">وضعیت</th>
+<th class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant text-left">عملیات</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">#MS-9042</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">۱۴۰۳/۰۲/۱۵</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">۴,۲۰۰,۰۰۰ تومان</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">در حال ارسال</span>
+</td>
+<td class="px-6 py-4 text-left">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">visibility</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">#MS-8921</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">۱۴۰۳/۰۱/۲۸</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">۱,۸۵۰,۰۰۰ تومان</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-[10px]">تحویل شده</span>
+</td>
+<td class="px-6 py-4 text-left">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">visibility</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">#MS-8810</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant">۱۴۰۲/۱۲/۰۵</td>
+<td class="px-6 py-4 font-body-md text-body-md text-on-surface">۹,۶۰۰,۰۰۰ تومان</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-[10px]">تحویل شده</span>
+</td>
+<td class="px-6 py-4 text-left">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors">visibility</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bento Featured Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative overflow-hidden rounded-xl h-64 group cursor-pointer border border-outline-variant/10">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up artistic shot of premium skincare serums in minimalist glass bottles. The lighting is soft and directional, creating elegant shadows on a textured cream surface. The aesthetic is clean, luxurious, and editorial, reflecting high-end cosmetic marketing. Neutral tones with a hint of rose gold." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp1alhJp7PSnEnGkQYHVhrlelHY-e8laRPcuPZj-Ru9QSyK0JdnbYWYS_NlcBfpy7Z8HRv4zCFg1dTQwy6WK86og_QQzhk2Ue63K8O8dZ2as442_uO858agDwp7m2nsLQx_558QYPUHdgO8k6uMzn56EgYfV65ntv-oel7hGZS1ciqL3iBrxh0_KPRoy066Yb3NdBK9sAaCjrI7SLT0YSWtmxRfB87h82SzLvmZ1_Gw9LA3y2M4GQ7B5E97zRAHwzfnU--Vx9TkIg">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent"></div>
+<div class="absolute bottom-6 right-6">
+<span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/80 px-2 py-0.5 rounded mb-2 inline-block">پیشنهاد ویژه</span>
+<h4 class="font-headline-md-mobile text-headline-md-mobile text-white">مراقبت شبانه پیشرفته</h4>
+</div>
+</div>
+<div class="bg-primary-container p-8 rounded-xl flex flex-col justify-center gap-4">
+<h4 class="font-title-lg text-title-lg text-on-primary-container">باشگاه مشتریان MUSE</h4>
+<p class="font-body-md text-body-md text-on-primary-fixed-variant leading-relaxed">
+                        با تکمیل پروفایل خود و خرید از مجموعه‌های جدید، سطح کاربری خود را ارتقا دهید و از تخفیف‌های اختصاصی و ارسال رایگان بهره‌مند شوید.
+                    </p>
+<button class="bg-primary text-white px-6 py-3 rounded-lg font-label-sm text-label-sm w-fit hover:bg-on-primary-fixed-variant transition-colors">تکمیل پروفایل</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+
+<!-- Floating Action Button (Limited context: Only for direct dashboard actions) -->
+<button class="fixed bottom-8 left-8 md:bottom-12 md:left-12 w-14 h-14 bg-on-surface text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 z-50">
+<span class="material-symbols-outlined">support_agent</span>
+</button>
+<script>
+        // Micro-interactions and subtle effects
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+
+        // Simple animation for the stats cards on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const stats = document.querySelectorAll('.bg-surface-container-low');
+            stats.forEach((stat, index) => {
+                stat.style.opacity = '0';
+                stat.style.transform = 'translateY(20px)';
+                stat.style.transition = `all 0.6s cubic-bezier(0.23, 1, 0.32, 1) ${index * 0.1}s`;
+                setTimeout(() => {
+                    stat.style.opacity = '1';
+                    stat.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

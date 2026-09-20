@@ -1,0 +1,170 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: store-mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-your_secure_password}
+      MONGO_INITDB_DATABASE: ${MONGO_DB_NAME:-store-app}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+      - ./scripts/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
+      - ./database-backup:/backup:ro
+    networks:
+      - store-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+  redis:
+    image: redis:7-alpine
+    container_name: store-redis
+    restart: always
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-your_redis_password}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - store-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  core-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.core-server
+    container_name: store-core-server
+    restart: always
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      CORE_SERVER_PORT: "4000"
+      HUB_DOMAINS: ${HUB_DOMAINS:-fathemes.com,www.fathemes.com,localhost,127.0.0.1}
+      MONGODB_URI: mongodb://${MONGO_ROOT_USER:-admin}:${MONGO_ROOT_PASSWORD:-your_secure_password}@mongodb:27017/${MONGO_DB_NAME:-store-app}?authSource=admin
+      DATABASE_URL: mongodb://${MONGO_ROOT_USER:-admin}:${MONGO_ROOT_PASSWORD:-your_secure_password}@mongodb:27017/${MONGO_DB_NAME:-store-app}?authSource=admin
+      REDIS_ENABLED: "true"
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-your_redis_password}
+      REDIS_URL: redis://:${REDIS_PASSWORD:-your_redis_password}@redis:6379
+      JWT_SECRET: ${JWT_SECRET}
+      SERVER_PUBLIC_IP: ${SERVER_PUBLIC_IP:-}
+      PROVISIONING_ENABLED: ${PROVISIONING_ENABLED:-true}
+      TENANT_ADMIN_EMAIL: ${TENANT_ADMIN_EMAIL:-admin@muse.local}
+      TENANT_ADMIN_PASSWORD: ${TENANT_ADMIN_PASSWORD:-Admin@123}
+      ZARINPAL_MERCHANT_ID: ${ZARINPAL_MERCHANT_ID:-}
+      ZARINPAL_SANDBOX: ${ZARINPAL_SANDBOX:-false}
+      NEXT_PUBLIC_APP_URL: https://${DOMAIN_NAME:-www.fathemes.com}
+      NEXT_PUBLIC_API_URL: https://${DOMAIN_NAME:-www.fathemes.com}/api
+    expose:
+      - "4000"
+    volumes:
+      - uploads_data:/app/public/uploads
+      - provisioned_sites:/app/provisioned-sites
+      - ./logs:/app/logs
+    networks:
+      - store-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:4000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  nginx:
+    image: nginx:alpine
+    container_name: store-nginx
+    restart: always
+    depends_on:
+      core-server:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/proxy-params.conf:/etc/nginx/proxy-params.conf:ro
+      - ./nginx/sites:/etc/nginx/sites:ro
+      - ./nginx/ssl:/etc/letsencrypt:ro
+      - uploads_data:/app/public/uploads:ro
+    networks:
+      - store-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://core-server:4000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  certbot:
+    image: certbot/certbot
+    container_name: store-certbot
+    volumes:
+      - ./nginx/ssl:/etc/letsencrypt
+      - ./nginx/certbot-webroot:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  db-import:
+    image: mongo:7.0
+    container_name: store-db-import
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      MONGO_ROOT_USER: ${MONGO_ROOT_USER:-admin}
+      MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-your_secure_password}
+      MONGO_DB_NAME: ${MONGO_DB_NAME:-store-app}
+    volumes:
+      - ./database-backup:/backup:ro
+      - ./scripts/import-database.sh:/import-database.sh:ro
+    networks:
+      - store-network
+    command: /bin/bash /import-database.sh
+    restart: "no"
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: store-uptime-kuma
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime_kuma_data:/app/data
+    networks:
+      - store-network
+    environment:
+      - TZ=Asia/Tehran
+
+volumes:
+  mongodb_data:
+    driver: local
+  mongodb_config:
+    driver: local
+  redis_data:
+    driver: local
+  uploads_data:
+    driver: local
+  provisioned_sites:
+    driver: local
+  uptime_kuma_data:
+    driver: local
+
+networks:
+  store-network:
+    driver: bridge

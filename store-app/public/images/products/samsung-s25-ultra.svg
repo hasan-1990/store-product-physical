@@ -1,0 +1,39 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="galaxyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#galaxyGrad)"/>
+  
+  <!-- Phone body -->
+  <rect x="120" y="50" width="160" height="300" rx="25" ry="25" fill="#2c2c54" stroke="#4834d4" stroke-width="2"/>
+  
+  <!-- Screen -->
+  <rect x="130" y="70" width="140" height="260" rx="15" ry="15" fill="#000" opacity="0.8"/>
+  
+  <!-- Screen glow -->
+  <rect x="135" y="75" width="130" height="250" rx="12" ry="12" fill="#4834d4" opacity="0.3"/>
+  
+  <!-- Camera module -->
+  <rect x="140" y="80" width="45" height="45" rx="8" ry="8" fill="#686de0" opacity="0.8"/>
+  <circle cx="152" cy="92" r="8" fill="#30336b"/>
+  <circle cx="173" cy="92" r="8" fill="#30336b"/>
+  <circle cx="152" cy="113" r="8" fill="#30336b"/>
+  <circle cx="173" cy="113" r="8" fill="#30336b"/>
+  
+  <!-- Samsung logo area -->
+  <text x="200" y="310" text-anchor="middle" fill="#686de0" font-family="Arial, sans-serif" font-size="14" font-weight="bold">SAMSUNG</text>
+  
+  <!-- S25 Ultra text -->
+  <text x="200" y="380" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Galaxy S25</text>
+  <text x="200" y="395" text-anchor="middle" fill="#4834d4" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Ultra</text>
+  
+  <!-- Price badge -->
+  <rect x="320" y="60" width="65" height="25" rx="12" ry="12" fill="#e74c3c" opacity="0.9"/>
+  <text x="352" y="75" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">تخفیف 80%</text>
+</svg>

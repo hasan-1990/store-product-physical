@@ -1,0 +1,363 @@
+<!DOCTYPE html><html dir="rtl" lang="fa"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#524348",
+                    "tertiary": "#5e5f5d",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container": "#f0eded",
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "surface-variant": "#e4e2e1",
+                    "secondary-fixed": "#ffe088",
+                    "outline": "#7f7477",
+                    "inverse-surface": "#303030",
+                    "primary-fixed-dim": "#d7c1c7",
+                    "on-secondary-fixed": "#241a00",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#574500",
+                    "secondary": "#735c00",
+                    "surface-container-highest": "#e4e2e1",
+                    "tertiary-container": "#e8e7e4",
+                    "surface-bright": "#fcf9f8",
+                    "tertiary-fixed-dim": "#c7c6c4",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#e3e2e0",
+                    "on-tertiary-container": "#676765",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#24181c",
+                    "primary-container": "#f8e1e7",
+                    "on-tertiary-fixed": "#1a1c1a",
+                    "on-primary-container": "#746368",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "on-surface-variant": "#4d4447",
+                    "inverse-primary": "#d7c1c7",
+                    "on-secondary-container": "#745c00",
+                    "error-container": "#ffdad6",
+                    "primary": "#6b5a5f",
+                    "primary-fixed": "#f4dde3",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#464745",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#eae7e7",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#fed65b",
+                    "inverse-on-surface": "#f3f0f0",
+                    "background": "#fcf9f8",
+                    "surface-tint": "#6b5a5f",
+                    "outline-variant": "#d0c3c6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-md-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #fcf9f8;
+            color: #1b1c1c;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .stepper-line {
+            height: 1.5px;
+            background: #d0c3c6;
+            flex-grow: 1;
+        }
+        .checkout-step-active {
+            color: #6b5a5f;
+            border-bottom: 2px solid #6b5a5f;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm opacity-95 transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-gutter">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-on-surface">MUSE</span>
+<div class="hidden md:flex gap-8">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md text-body-md" href="#">Skincare</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md text-body-md" href="#">Makeup</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md text-body-md" href="#">Hair</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300 font-body-md text-body-md" href="#">Fragrance</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="search">search</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="person">person</span>
+<div class="relative">
+<span class="material-symbols-outlined cursor-pointer text-secondary transition-colors" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-secondary text-on-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center">۳</span>
+</div>
+</div>
+</div>
+</nav>
+<main class="mt-[100px] mb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<header class="mb-12 text-center">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">سبد خرید شما</h1>
+<p class="font-body-md text-on-surface-variant">اقلام انتخابی خود را مرور کنید و برای نهایی کردن سفارش به مرحله پرداخت بروید.</p>
+</header>
+<!-- Checkout Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Side: Cart Items & Multi-step Form -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Step Navigation (Visual Only for this demo) -->
+<div class="flex items-center justify-center gap-4 mb-8">
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">۱</div>
+<span class="font-label-sm text-primary">سبد خرید</span>
+</div>
+<div class="stepper-line max-w-[60px]"></div>
+<div class="flex flex-col items-center gap-2 opacity-40">
+<div class="w-8 h-8 rounded-full border border-outline flex items-center justify-center font-bold">۲</div>
+<span class="font-label-sm">اطلاعات ارسال</span>
+</div>
+<div class="stepper-line max-w-[60px]"></div>
+<div class="flex flex-col items-center gap-2 opacity-40">
+<div class="w-8 h-8 rounded-full border border-outline flex items-center justify-center font-bold">۳</div>
+<span class="font-label-sm">پرداخت</span>
+</div>
+</div>
+<!-- Shopping Cart Section -->
+<section class="bg-surface-container-low rounded-xl p-6 md:p-8 space-y-6">
+<h2 class="font-title-lg text-on-surface">لیست محصولات</h2>
+<!-- Cart Item 1 -->
+<div class="flex flex-col md:flex-row gap-6 pb-6 border-b border-outline-variant">
+<div class="w-32 h-32 bg-surface-variant rounded-lg flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A luxury aesthetic beauty product bottle, minimalist frosted glass with a gold cap, placed on a beige marble surface with soft, cinematic morning sunlight and deep shadows. The overall mood is high-end editorial and serene, perfectly matching the MUSE cosmetics brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ9j_ijOXGNA992-nkYTpK58-JiiIEFLIQVUwQWjIYIbptWM5R1Y29KDmGF8AQqcSCAZby_-HAGkMz7CChf3EZH4CX7JDxPQBVN27Dqmzfmhu6OKnLjfzwjOxIVmwnXxzeO6uXq-oKgirRE6Yon6jL-8s4jHVSNKQCMLa-g35C3mXlNoRxkTIArxc8stfuIAbToWK9xMJYWbnzPQ3VJakYySJhVKLiePssi5gXD7UX03PRsZ6rzY8HswX4L8e_F7odj043vDfS5zY">
+</div>
+<div class="flex-grow flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-title-lg text-on-surface">سرم جوانساز رادیانس</h3>
+<span class="font-title-lg text-secondary">۱,۸۵۰,۰۰۰ تومان</span>
+</div>
+<p class="text-on-surface-variant mt-1">حجم: ۳۰ میلی‌لیتر | نوع پوست: نرمال تا خشک</p>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="flex items-center border border-outline-variant rounded-lg overflow-hidden bg-surface-bright">
+<button class="px-3 py-1 hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button>
+<span class="px-4 font-bold">۱</span>
+<button class="px-3 py-1 hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+</div>
+<button class="text-error font-label-sm flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[18px]">delete</span> حذف
+                                </button>
+</div>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="flex flex-col md:flex-row gap-6 pb-6 border-b border-outline-variant">
+<div class="w-32 h-32 bg-surface-variant rounded-lg flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a premium matte charcoal lipstick container with soft gold embossing, resting on a velvet dusty pink cloth. Elegant, soft-focus background with a subtle ambient glow, conveying professional elegance and luxury makeup aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAakXgCz7TzVzi2X8fGtrGHQP52mzTgcv005vsC4ZwhbHCbwkE3XqgZ2zJKYBA2W1Dv3AaqOYT7Hr2IrynoijZ-Rm_oiPWOKNnxl-MGuXvGRE1u5cV-w-3NdToHJYgrd0Gtp4zO3P39wLZ7UH3axKIrKq8SJdOEdGJwuIg6qzIRO5vmxLlGibIugCATSUmVXAZYPp4qlMvWdN2OyW4gG7I2vfD9dfvYA4iisg_zZsB1tKt552zgqn-zkQ4Ngwniw1RukonZilFk5sc">
+</div>
+<div class="flex-grow flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-title-lg text-on-surface">رژلب ابریشمی نود</h3>
+<span class="font-title-lg text-secondary">۹۵۰,۰۰۰ تومان</span>
+</div>
+<p class="text-on-surface-variant mt-1">کد رنگ: M204 | بافت: مات مخملی</p>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="flex items-center border border-outline-variant rounded-lg overflow-hidden bg-surface-bright">
+<button class="px-3 py-1 hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button>
+<span class="px-4 font-bold">۲</span>
+<button class="px-3 py-1 hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+</div>
+<button class="text-error font-label-sm flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[18px]">delete</span> حذف
+                                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Shipping Form (Simplified as multi-step part) -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 space-y-8">
+<h2 class="font-headline-md-mobile md:font-headline-md text-on-surface border-b border-outline-variant pb-4">اطلاعات ارسال</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">نام و نام خانوادگی</label>
+<input class="bg-transparent border-b border-outline focus:border-secondary focus:ring-0 transition-all py-2 font-body-md" placeholder="مثلاً سارا احمدی" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">شماره تماس</label>
+<input class="bg-transparent border-b border-outline focus:border-secondary focus:ring-0 transition-all py-2 font-body-md text-right" dir="ltr" placeholder="۰۹۱۲۰۰۰۰۰۰۰" type="tel">
+</div>
+<div class="md:col-span-2 flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">آدرس کامل پستی</label>
+<textarea class="bg-transparent border-b border-outline focus:border-secondary focus:ring-0 transition-all py-2 font-body-md" placeholder="استان، شهر، خیابان..." rows="3"></textarea>
+</div>
+</div>
+<h2 class="font-headline-md-mobile md:font-headline-md text-on-surface border-b border-outline-variant pb-4 mt-8">روش پرداخت</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<label class="relative flex items-center p-4 border border-secondary bg-primary-container/10 rounded-lg cursor-pointer transition-all">
+<input checked="" class="text-secondary focus:ring-secondary" name="payment" type="radio">
+<div class="mr-4">
+<p class="font-title-lg text-on-surface">پرداخت آنلاین</p>
+<p class="text-body-md text-on-surface-variant">با تمامی کارت‌های شتاب</p>
+</div>
+<span class="material-symbols-outlined absolute left-4 text-secondary" data-icon="credit_card">credit_card</span>
+</label>
+<label class="relative flex items-center p-4 border border-outline-variant rounded-lg cursor-pointer hover:border-secondary transition-all">
+<input class="text-secondary focus:ring-secondary" name="payment" type="radio">
+<div class="mr-4">
+<p class="font-title-lg text-on-surface">پرداخت در محل</p>
+<p class="text-body-md text-on-surface-variant">ویژه تهران و کرج</p>
+</div>
+<span class="material-symbols-outlined absolute left-4 text-on-surface-variant" data-icon="payments">payments</span>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Side: Order Summary -->
+<aside class="lg:col-span-4 sticky top-[120px] space-y-6">
+<div class="bg-surface-container-high rounded-xl p-6 md:p-8 shadow-soft">
+<h2 class="font-title-lg text-on-surface mb-6">خلاصه سفارش</h2>
+<div class="space-y-4 font-body-md text-on-surface-variant">
+<div class="flex justify-between">
+<span class="">قیمت کالاها (۳)</span>
+<span class="">۳,۷۵۰,۰۰۰ تومان</span>
+</div>
+<div class="flex justify-between">
+<span class="">هزینه ارسال</span>
+<span class="">رایگان</span>
+</div>
+<div class="flex justify-between text-error">
+<span class="">تخفیف</span>
+<span class="">۰ تومان</span>
+</div>
+<div class="pt-4 border-t border-outline-variant">
+<label class="font-label-sm block mb-2">کد تخفیف</label>
+<div class="flex gap-2">
+<input class="flex-grow bg-surface-bright border border-outline-variant rounded-lg px-3 py-2 text-body-md focus:ring-1 focus:ring-secondary" placeholder="کد را وارد کنید" type="text">
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-lg font-label-sm hover:opacity-90 transition-opacity">اعمال</button>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant flex justify-between items-center">
+<span class="font-title-lg text-on-surface">مبلغ قابل پرداخت</span>
+<span class="font-headline-md text-on-surface">۳,۷۵۰,۰۰۰ تومان</span>
+</div>
+</div>
+<button class="w-full mt-8 bg-on-surface text-surface py-4 rounded-lg font-title-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-transform duration-200">
+                        تکمیل و پرداخت نهایی
+                        <span class="material-symbols-outlined">arrow_back</span>
+</button>
+<p class="text-[11px] text-on-surface-variant text-center mt-4">
+                        با ثبت سفارش، <a class="underline" href="#">قوانین و مقررات</a> MUSE را پذیرفته‌اید.
+                    </p>
+</div>
+<!-- Trust Badge Card -->
+<div class="bg-primary-container/20 rounded-xl p-4 border border-primary-fixed-dim/30 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<p class="font-label-sm text-on-primary-container">ضمانت اصالت و بازگشت</p>
+<p class="text-[12px] text-on-primary-container/80">۷ روز ضمانت بازگشت کالا</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-[1280px] mx-auto text-right">
+<div class="md:col-span-4 space-y-6">
+<h2 class="font-display-lg text-display-lg-mobile text-on-surface">MUSE</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">الهام‌بخش زیبایی شما با بهترین مواد اولیه و پیشرفته‌ترین تکنولوژی‌های روز دنیا.</p>
+</div>
+<div class="md:col-span-2 space-y-4">
+<h4 class="font-title-lg text-title-lg text-primary">محصولات</h4>
+<ul class="space-y-2">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Skincare</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Makeup</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Haircare</a></li>
+</ul>
+</div>
+<div class="md:col-span-3 space-y-4">
+<h4 class="font-title-lg text-title-lg text-primary">خدمات مشتریان</h4>
+<ul class="space-y-2">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Store Locator</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Privacy Policy</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline transition-all" href="#">Shipping &amp; Returns</a></li>
+</ul>
+</div>
+<div class="md:col-span-3 space-y-4"><h4 class="font-title-lg text-title-lg text-primary">به دنیای میوز بپیوندید</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">با عضویت در خبرنامه، از تخفیف‌های اختصاصی، دسترسی زودهنگام به محصولات جدید و نکات تخصصی زیبایی بهره‌مند شوید.</p>
+<div class="flex">
+<input class="bg-white border-none rounded-r-lg px-4 py-2 w-full focus:ring-1 focus:ring-secondary" placeholder="ایمیل شما" type="email">
+<button class="bg-[#1b1c1c] text-white px-4 py-2 rounded-l-lg hover:opacity-90 transition-opacity">عضویت</button>
+</div></div>
+<div class="md:col-span-12 pt-12 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">© 2024 MUSE COSMETICS. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="facebook">face_nod</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="instagram">infrared</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" data-icon="twitter">filter</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for scroll effects on navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+    </script>
+
+
+</body></html>

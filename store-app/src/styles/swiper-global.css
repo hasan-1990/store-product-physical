@@ -1,0 +1,21 @@
+/* Global Swiper Styles - یکبار load می‌شود */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/scrollbar';
+@import 'swiper/css/autoplay';
+
+/* Swiper Custom Optimizations */
+.swiper {
+  will-change: auto;
+}
+
+.swiper-slide {
+  will-change: transform;
+}
+
+/* Reduce paint on navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  will-change: auto;
+}

@@ -1,0 +1,35 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="galaxyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c2c54;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#40407a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#706fd3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#galaxyGrad2)"/>
+  
+  <!-- Phone body -->
+  <rect x="120" y="50" width="160" height="300" rx="25" ry="25" fill="#40407a" stroke="#706fd3" stroke-width="2"/>
+  
+  <!-- Screen -->
+  <rect x="130" y="70" width="140" height="260" rx="15" ry="15" fill="#000" opacity="0.8"/>
+  
+  <!-- Screen glow -->
+  <rect x="135" y="75" width="130" height="250" rx="12" ry="12" fill="#706fd3" opacity="0.3"/>
+  
+  <!-- Camera module -->
+  <rect x="140" y="80" width="45" height="45" rx="8" ry="8" fill="#f1c40f" opacity="0.8"/>
+  <circle cx="152" cy="92" r="8" fill="#2c3e50"/>
+  <circle cx="173" cy="92" r="8" fill="#2c3e50"/>
+  <circle cx="152" cy="113" r="8" fill="#2c3e50"/>
+  <circle cx="173" cy="113" r="8" fill="#2c3e50"/>
+  
+  <!-- Samsung logo area -->
+  <text x="200" y="310" text-anchor="middle" fill="#f1c40f" font-family="Arial, sans-serif" font-size="14" font-weight="bold">SAMSUNG</text>
+  
+  <!-- S26 Ultra text -->
+  <text x="200" y="380" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Galaxy S26</text>
+  <text x="200" y="395" text-anchor="middle" fill="#f1c40f" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Ultra</text>
+</svg>

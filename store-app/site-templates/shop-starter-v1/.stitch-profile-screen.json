@@ -1,0 +1,28 @@
+﻿{
+    "id":  1,
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"name\":\"projects/3080141817154658487/screens/ab59f96b32f446ab9a959a41dbd4ecaf\",\"title\":\"پنل کاربری - میوز\",\"screenshot\":{\"name\":\"projects/3080141817154658487/files/9793494885452834835\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLtOltFLVGS_DPpiVipy1k_I-ZWmL7VElWxbGYToGMG6fmrfPngbqBQHmR5iaDZRHFv1v7CktoqxzH1YV725MRQB81maMCWhPWNtAa5joTl6fEJuR_HbQP3cr3-2PqZH-Xu0X9Aywn34ExBvRezEQWJfBv0NNCAdWUWUakxFoSSuPB0sKGjMRpJkTBXUWBSu7LI_odElHs-R0EzszuUTgz9r57IJhfSSzO6EFqjGF7aXLo96UaAyyilhsw\"},\"htmlCode\":{\"name\":\"projects/3080141817154658487/files/5523582079454326601\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1NGQ1OThhYTJhMDkwNDRmNWZlOThlMzg4ZTIyEgsSBxCR5_i8ghUYAZIBIwoKcHJvamVjdF9pZBIVQhMzMDgwMTQxODE3MTU0NjU4NDg3\u0026filename=\u0026opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2734\",\"deviceType\":\"DESKTOP\"}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "deviceType":  "DESKTOP",
+                                             "height":  "2734",
+                                             "htmlCode":  {
+                                                              "downloadUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1NGQ1OThhYTJhMDkwNDRmNWZlOThlMzg4ZTIyEgsSBxCR5_i8ghUYAZIBIwoKcHJvamVjdF9pZBIVQhMzMDgwMTQxODE3MTU0NjU4NDg3\u0026filename=\u0026opi=89354086",
+                                                              "mimeType":  "text/html",
+                                                              "name":  "projects/3080141817154658487/files/5523582079454326601"
+                                                          },
+                                             "name":  "projects/3080141817154658487/screens/ab59f96b32f446ab9a959a41dbd4ecaf",
+                                             "screenshot":  {
+                                                                "downloadUrl":  "https://lh3.googleusercontent.com/aida/AP1WRLtOltFLVGS_DPpiVipy1k_I-ZWmL7VElWxbGYToGMG6fmrfPngbqBQHmR5iaDZRHFv1v7CktoqxzH1YV725MRQB81maMCWhPWNtAa5joTl6fEJuR_HbQP3cr3-2PqZH-Xu0X9Aywn34ExBvRezEQWJfBv0NNCAdWUWUakxFoSSuPB0sKGjMRpJkTBXUWBSu7LI_odElHs-R0EzszuUTgz9r57IJhfSSzO6EFqjGF7aXLo96UaAyyilhsw",
+                                                                "name":  "projects/3080141817154658487/files/9793494885452834835"
+                                                            },
+                                             "title":  "پنل کاربری - میوز",
+                                             "width":  "2560"
+                                         }
+               }
+}

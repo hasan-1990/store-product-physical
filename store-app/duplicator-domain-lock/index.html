@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicator Backup Domain Lock Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: Tahoma;
+        }
+        
+        input[type="text"]:focus,
+        input[type="date"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-input-label {
+            display: block;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-input-wrapper:hover .file-input-label {
+            background: #e9ecef;
+            border-color: #667eea;
+        }
+        
+        .file-name {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e7f3ff;
+            border-radius: 5px;
+            font-size: 13px;
+            color: #0066cc;
+            display: none;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border-right: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box h3 {
+            margin-bottom: 10px;
+            color: #856404;
+        }
+        
+        .info-box ul {
+            margin-right: 20px;
+            color: #856404;
+        }
+        
+        .info-box li {
+            margin-bottom: 5px;
+        }
+        
+        .result {
+            display: none;
+            padding: 20px;
+            background: #d4edda;
+            border: 2px solid #c3e6cb;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .result.error {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .result h3 {
+            margin-bottom: 10px;
+            color: #155724;
+        }
+        
+        .result.error h3 {
+            color: #721c24;
+        }
+        
+        .progress {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #d63384;
+            margin-top: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 قفل‌گذاری بکاپ Duplicator</h1>
+            <p>محافظت از فایل‌های بکاپ با قفل دامنه</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-box">
+                <h3>📌 نکات مهم:</h3>
+                <ul>
+                    <li>این ابزار دامنه را به صورت SHA-256 هش می‌کند</li>
+                    <li>فایل قفل‌شده فقط روی دامنه مشخص‌شده قابل نصب است</li>
+                    <li>کاربر نمی‌تواند دامنه قفل‌شده را ببیند یا تغییر دهد</li>
+                    <li>فایل اصلی دست نخورده باقی می‌ماند</li>
+                </ul>
+            </div>
+            
+            <form id="lockForm" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="zipFile">
+                        📦 فایل بکاپ Duplicator (ZIP):
+                    </label>
+                    <div class="file-input-wrapper">
+                        <div class="file-input-label">
+                            📁 کلیک کنید و فایل ZIP را انتخاب کنید
+                        </div>
+                        <input type="file" id="zipFile" name="zipFile" accept=".zip" required>
+                    </div>
+                    <div class="file-name" id="fileName"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="domain">
+                        🌐 دامنه مجاز:
+                    </label>
+                    <input 
+                        type="text" 
+                        id="domain" 
+                        name="domain" 
+                        placeholder="example.com" 
+                        required
+                    >
+                    <div class="help-text">
+                        بدون www - مثال: <span class="example">mysite.com</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="expires">
+                        ⏰ تاریخ انقضا (اختیاری):
+                    </label>
+                    <input 
+                        type="date" 
+                        id="expires" 
+                        name="expires"
+                    >
+                    <div class="help-text">
+                        اگر خالی بگذارید، هیچ تاریخ انقضایی ندارد
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn" id="submitBtn">
+                    🔐 شروع قفل‌گذاری
+                </button>
+            </form>
+            
+            <div class="progress" id="progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill">0%</div>
+                </div>
+            </div>
+            
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('lockForm');
+        const fileInput = document.getElementById('zipFile');
+        const fileName = document.getElementById('fileName');
+        const submitBtn = document.getElementById('submitBtn');
+        const progress = document.getElementById('progress');
+        const progressFill = document.getElementById('progressFill');
+        const result = document.getElementById('result');
+        
+        // نمایش نام فایل انتخاب‌شده
+        fileInput.addEventListener('change', function(e) {
+            if (this.files.length > 0) {
+                fileName.textContent = '📦 فایل انتخاب شده: ' + this.files[0].name;
+                fileName.style.display = 'block';
+            }
+        });
+        
+        // ارسال فرم
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            
+            // نمایش پروگرس بار
+            progress.style.display = 'block';
+            result.style.display = 'none';
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ در حال پردازش...';
+            
+            // شبیه‌سازی پروگرس
+            let progressValue = 0;
+            const progressInterval = setInterval(() => {
+                progressValue += 5;
+                if (progressValue <= 90) {
+                    progressFill.style.width = progressValue + '%';
+                    progressFill.textContent = progressValue + '%';
+                }
+            }, 200);
+            
+            try {
+                const response = await fetch('process-lock.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                clearInterval(progressInterval);
+                progressFill.style.width = '100%';
+                progressFill.textContent = '100%';
+                
+                setTimeout(() => {
+                    progress.style.display = 'none';
+                    result.style.display = 'block';
+                    
+                    if (data.success) {
+                        result.classList.remove('error');
+                        result.innerHTML = `
+                            <h3>✅ قفل‌گذاری موفقیت‌آمیز</h3>
+                            <p><strong>فایل قفل‌شده:</strong> ${data.lockedFile}</p>
+                            <p><strong>دامنه مجاز:</strong> ${data.domain}</p>
+                            <p><strong>حجم:</strong> ${data.size}</p>
+                            ${data.expires ? '<p><strong>تاریخ انقضا:</strong> ' + data.expires + '</p>' : ''}
+                            <p style="margin-top: 15px; padding: 10px; background: #fff; border-radius: 5px;">
+                                🎉 فایل آماده توزیع است!
+                            </p>
+                        `;
+                    } else {
+                        result.classList.add('error');
+                        result.innerHTML = `
+                            <h3>❌ خطا در قفل‌گذاری</h3>
+                            <p>${data.message}</p>
+                        `;
+                    }
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '🔐 شروع قفل‌گذاری';
+                }, 500);
+                
+            } catch (error) {
+                clearInterval(progressInterval);
+                progress.style.display = 'none';
+                result.style.display = 'block';
+                result.classList.add('error');
+                result.innerHTML = `
+                    <h3>❌ خطا</h3>
+                    <p>خطا در اتصال به سرور: ${error.message}</p>
+                `;
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🔐 شروع قفل‌گذاری';
+            }
+        });
+    </script>
+</body>
+</html>

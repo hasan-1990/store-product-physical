@@ -1,0 +1,396 @@
+/* Override Tailwind max-width constraints */
+.tabbed-products-swiper,
+.featured-products-swiper,
+.swiper[class*="discount-products-swiper"],
+.swiper[class*="products-swiper"] {
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* Force container width - Override any Tailwind classes */
+.tabbed-products-swiper,
+.tabbed-products-swiper.swiper,
+.tabbed-products-swiper.swiper-initialized,
+.featured-products-swiper,
+.featured-products-swiper.swiper,
+.featured-products-swiper.swiper-initialized,
+.swiper[class*="discount-products-swiper"],
+.swiper[class*="products-swiper"] {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Swiper wrapper and slides styling */
+.featured-products-swiper .swiper-wrapper,
+.swiper[class*="discount-products-swiper"] .swiper-wrapper,
+.swiper[class*="products-swiper"] .swiper-wrapper,
+[class*="swiper"] .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1) !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.featured-products-swiper .swiper-slide,
+.swiper[class*="discount-products-swiper"] .swiper-slide,
+.swiper[class*="products-swiper"] .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  padding: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: auto !important;
+  flex: 0 0 auto !important;
+  overflow: hidden !important;
+}
+
+/* عرض کارت محصول - همه selector ها */
+.featured-products-swiper .swiper-slide > div,
+.featured-products-swiper .swiper-slide .group,
+.featured-products-swiper .group,
+.swiper[class*="discount-products-swiper"] .swiper-slide > div,
+.swiper[class*="discount-products-swiper"] .swiper-slide .group,
+.swiper[class*="discount-products-swiper"] .group,
+.swiper[class*="products-swiper"] .swiper-slide > div,
+.swiper[class*="products-swiper"] .swiper-slide .group,
+.swiper[class*="products-swiper"] .group {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: auto !important;
+}
+
+/* Custom slow transition class */
+.slow-transition .swiper-wrapper {
+  transition-duration: 1500ms !important;
+  transition-timing-function: ease-in-out !important;
+}
+
+/* Custom smooth transition for featured products */
+.featured-products-swiper.swiper {
+  --swiper-transition-timing-function: ease-in-out;
+}
+
+.featured-products-swiper .swiper-wrapper {
+  transition-timing-function: ease-in-out !important;
+  transition-duration: 1500ms !important;
+}
+
+/* Navigation Buttons - مشابه سایت ژاکت */
+.featured-products-swiper .swiper-button-next,
+.featured-products-swiper .swiper-button-prev {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #666 !important;
+  border-radius: 50% !important;
+  width: 35px !important;
+  height: 35px !important;
+  margin-top: -17.5px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15) !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  position: absolute !important;
+  font-size: 14px !important;
+}
+
+/* Custom Navigation Buttons for MultipleDiscountSections */
+.custom-nav-button {
+  background: white !important;
+  border: 2px solid #fed7aa !important;
+  color: #f97316 !important;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+  transition: all 0.3s ease !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  cursor: pointer !important;
+}
+
+.custom-nav-button:hover {
+  background: #fff7ed !important;
+  border-color: #fb923c !important;
+  transform: translateY(-50%) scale(1.1) !important;
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3) !important;
+}
+
+.custom-nav-button:focus {
+  outline: 2px solid #f97316 !important;
+  outline-offset: 2px !important;
+}
+
+.custom-nav-button.nav-prev {
+  right: -25px !important;
+  left: auto !important;
+}
+
+.custom-nav-button.nav-next {
+  left: -25px !important;
+  right: auto !important;
+}
+
+.custom-nav-button svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke-width: 2.5 !important;
+}
+
+/* Force visibility on all screen sizes */
+@media (max-width: 1280px) {
+  .custom-nav-button.nav-prev {
+    right: 10px !important;
+  }
+  
+  .custom-nav-button.nav-next {
+    left: 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-nav-button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .custom-nav-button svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+.featured-products-swiper .swiper-button-prev {
+  left: -20px !important;
+  right: auto !important;
+}
+
+.featured-products-swiper .swiper-button-next {
+  right: -20px !important;
+  left: auto !important;
+}
+
+.featured-products-swiper .swiper-button-next:hover,
+.featured-products-swiper .swiper-button-prev:hover {
+  background: white !important;
+  color: #333 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+  transform: translateY(-50%) scale(1.1) !important;
+}
+
+.featured-products-swiper .swiper-button-next::after,
+.featured-products-swiper .swiper-button-prev::after {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  font-family: swiper-icons !important;
+}
+
+/* Pagination styling */
+.featured-products-swiper .swiper-pagination,
+.swiper-pagination-custom {
+  text-align: center;
+  z-index: 20 !important;
+  position: static !important;
+  margin-top: 20px !important;
+}
+
+.featured-products-swiper .swiper-pagination-bullet,
+.swiper-pagination-custom .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #d1d5db;
+  opacity: 1;
+  transition: all 0.3s ease;
+  margin: 0 4px;
+  border-radius: 50%;
+}
+
+.featured-products-swiper .swiper-pagination-bullet-active,
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  background: #f97316;
+  transform: scale(1.2);
+  box-shadow: 0px 2px 8px rgba(249, 115, 22, 0.4);
+}
+
+/* Card hover effects مشابه ژاکت */
+.featured-products-swiper .group {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.featured-products-swiper .group:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Image hover effect */
+.featured-products-swiper .group .object-cover {
+  transition: transform 0.3s ease;
+}
+
+.featured-products-swiper .group:hover .object-cover {
+  transform: scale(1.05);
+}
+
+/* Button animations */
+.featured-products-swiper .group .translate-y-4 {
+  transform: translateY(16px);
+  transition: transform 0.3s ease;
+}
+
+.featured-products-swiper .group:hover .translate-y-4 {
+  transform: translateY(0);
+}
+
+.featured-products-swiper .group .delay-75 {
+  transition-delay: 75ms;
+}
+
+/* RTL Support */
+.featured-products-swiper[dir="rtl"] .swiper-button-prev {
+  right: -20px !important;
+  left: auto !important;
+}
+
+.featured-products-swiper[dir="rtl"] .swiper-button-next {
+  left: -20px !important;
+  right: auto !important;
+}
+
+/* Responsive design */
+@media (max-width: 1280px) {
+  .featured-products-swiper .swiper-button-prev {
+    left: 10px !important;
+  }
+  
+  .featured-products-swiper .swiper-button-next {
+    right: 10px !important;
+  }
+  
+  .featured-products-swiper[dir="rtl"] .swiper-button-prev {
+    right: 10px !important;
+    left: auto !important;
+  }
+  
+  .featured-products-swiper[dir="rtl"] .swiper-button-next {
+    left: 10px !important;
+    right: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-products-swiper {
+    padding: 10px 0 !important;
+  }
+  
+  .featured-products-swiper .swiper-button-next,
+  .featured-products-swiper .swiper-button-prev {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
+
+/* Legacy support for other components */
+.tabbed-products-swiper .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+  overflow: visible !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+}
+
+.tabbed-products-swiper .swiper-slide {
+  height: auto !important;
+  min-height: 520px !important;
+  width: 304px !important;
+  max-width: 304px !important;
+  min-width: 304px !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
+}
+
+/* Grid layout centering */
+.products-grid {
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* Force remove all swiper spacing */
+.swiper-slide {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+/* Universal swiper slide override - تمام swiper ها */
+[class*="swiper"] .swiper-slide,
+.swiper .swiper-slide,
+div[class*="swiper-slide"] {
+  margin: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* No margin slides class */
+.no-margin-slides .swiper-slide {
+  margin: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
+}
+
+/* Specific swiper slide margin override */
+.swiper[class*="discount-products-swiper"] .swiper-slide,
+.swiper[class*="products-swiper"] .swiper-slide,
+.featured-products-swiper .swiper-slide {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}

@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-on-surface font-body antialiased;
+  }
+}
+
+@layer components {
+  .section-gap {
+    @apply py-16 md:py-24 lg:py-[120px];
+  }
+
+  .page-container {
+    @apply mx-auto w-full max-w-page px-5 md:px-10 lg:px-20;
+  }
+
+  .catalog-container {
+    @apply mx-auto w-full max-w-[1440px] px-4 md:px-10;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-on-surface px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-on-surface/90 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-lg border-[1.5px] border-secondary px-6 py-2.5 text-sm font-semibold text-secondary transition hover:bg-secondary-container/30 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg border border-outline px-3 py-2 text-sm font-medium text-on-surface-variant transition hover:border-primary hover:text-primary disabled:opacity-40;
+  }
+
+  .section-title {
+    @apply font-display text-2xl font-medium text-on-surface md:text-[32px] md:leading-10;
+  }
+
+  .page-title {
+    @apply font-display text-4xl text-on-surface md:text-5xl;
+  }
+
+  .card-surface {
+    @apply rounded-xl border border-outline/30 bg-surface-container;
+  }
+
+  .filter-label {
+    @apply text-sm font-bold uppercase tracking-wider text-primary;
+  }
+
+  .product-card {
+    @apply block;
+  }
+
+  .product-card-image {
+    @apply relative mb-4 aspect-[3/4] overflow-hidden rounded-2xl bg-surface-container-low;
+  }
+
+  .product-card-badge {
+    @apply absolute left-4 top-4 rounded-full bg-white/90 px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-primary shadow-sm backdrop-blur-sm;
+  }
+
+  .product-card-cart {
+    @apply absolute bottom-4 right-4 flex h-12 w-12 translate-y-12 items-center justify-center rounded-full bg-white/90 text-primary opacity-0 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-primary hover:text-white;
+  }
+
+  .glass-card {
+    @apply rounded-xl border border-outline/30 bg-white/70 backdrop-blur-md;
+  }
+
+  .admin-sidebar-active {
+    @apply border-r-[3px] border-primary bg-primary-container text-on-surface;
+  }
+}

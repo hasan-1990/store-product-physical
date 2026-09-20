@@ -1,0 +1,8 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#8B5CF6"/>
+  <rect x="150" y="100" width="100" height="100" fill="white" fill-opacity="0.3"/>
+  <path d="M170 120L180 135L200 115" stroke="white" stroke-width="3" fill="none"/>
+  <circle cx="185" cy="125" r="15" fill="white" fill-opacity="0.3"/>
+  <text x="200" y="220" fill="white" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">No Image</text>
+  <text x="200" y="240" fill="white" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">تصویر موجود نیست</text>
+</svg>

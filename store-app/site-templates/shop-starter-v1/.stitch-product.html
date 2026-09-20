@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#524348",
+                    "tertiary": "#5e5f5d",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-container": "#f0eded",
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "surface-variant": "#e4e2e1",
+                    "secondary-fixed": "#ffe088",
+                    "outline": "#7f7477",
+                    "inverse-surface": "#303030",
+                    "primary-fixed-dim": "#d7c1c7",
+                    "on-secondary-fixed": "#241a00",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#574500",
+                    "secondary": "#735c00",
+                    "surface-container-highest": "#e4e2e1",
+                    "tertiary-container": "#e8e7e4",
+                    "surface-bright": "#fcf9f8",
+                    "tertiary-fixed-dim": "#c7c6c4",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#e3e2e0",
+                    "on-tertiary-container": "#676765",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#24181c",
+                    "primary-container": "#f8e1e7",
+                    "on-tertiary-fixed": "#1a1c1a",
+                    "on-primary-container": "#746368",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "on-surface-variant": "#4d4447",
+                    "inverse-primary": "#d7c1c7",
+                    "on-secondary-container": "#745c00",
+                    "error-container": "#ffdad6",
+                    "primary": "#6b5a5f",
+                    "primary-fixed": "#f4dde3",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary-fixed-variant": "#464745",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#eae7e7",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#fed65b",
+                    "inverse-on-surface": "#f3f0f0",
+                    "background": "#fcf9f8",
+                    "surface-tint": "#6b5a5f",
+                    "outline-variant": "#d0c3c6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans", "system-ui"],
+                    "headline-md": ["Playfair Display", "serif"],
+                    "display-lg-mobile": ["Playfair Display", "serif"],
+                    "headline-md-mobile": ["Playfair Display", "serif"],
+                    "display-lg": ["Playfair Display", "serif"],
+                    "body-lg": ["Plus Jakarta Sans", "system-ui"],
+                    "title-lg": ["Plus Jakarta Sans", "system-ui"],
+                    "body-md": ["Plus Jakarta Sans", "system-ui"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fcf9f8;
+            color: #1b1c1c;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for minimalist feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fcf9f8; }
+        ::-webkit-scrollbar-thumb { background: #d0c3c6; border-radius: 10px; }
+        
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm opacity-95">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tighter text-on-surface" href="#">MUSE</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-secondary font-bold border-b-1.5 border-secondary font-body-md text-body-md transition-colors duration-300" href="#">Skincare</a>
+<a class="text-on-surface-variant hover:text-secondary font-body-md text-body-md transition-colors duration-300" href="#">Makeup</a>
+<a class="text-on-surface-variant hover:text-secondary font-body-md text-body-md transition-colors duration-300" href="#">Hair</a>
+<a class="text-on-surface-variant hover:text-secondary font-body-md text-body-md transition-colors duration-300" href="#">Fragrance</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors duration-300">search</button>
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors duration-300">person</button>
+<button class="relative material-symbols-outlined text-primary hover:text-secondary transition-colors duration-300">
+                    shopping_bag
+                    <span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-secondary text-[10px] text-white">2</span>
+</button>
+<button class="md:hidden material-symbols-outlined text-primary">menu</button>
+</div>
+</div>
+</nav>
+<main class="mt-24 md:mt-32 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Product Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-section-gap">
+<!-- Image Gallery -->
+<div class="lg:col-span-7 flex flex-col md:flex-row-reverse gap-4">
+<div class="flex-1 aspect-[4/5] bg-surface-container overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" data-alt="A high-end studio shot of a premium glass serum bottle with a minimalist gold dropper. The serum inside is a radiant, pearlescent liquid. The lighting is soft and directional, casting gentle shadows on a cream-colored stone surface. The overall mood is luxurious, serene, and editorial, reflecting the Modern Muse brand identity with high-key neutral tones and sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdQj1bOitJFIqI-0yfbgb1jIJcZszOxdEgBgnfpRBOyUciObOEplNnrYBEKfSFydGRMnEeuRjWTWWNQJlhJ5FCH2_OZCFydczPlCz8srd7DBz32CqifhOdxO2HPBJRH24B9hxLZCINJKztGtxpUs0GMBKw3q3FzWCPREGY0scQGaqegnJLjmRUrgLo8Y5Z8mgCCvEOrgww_x_P3Y6VLOXKqOzjtt3Y9gteUozsTW1I4Q0IuKC7KGRBcCVHkZ5-zlZZsL8tQBBAOVM"/>
+</div>
+<div class="flex md:flex-col gap-4 overflow-x-auto md:overflow-visible pb-4 md:pb-0">
+<div class="w-20 md:w-24 aspect-square bg-surface-container rounded-lg border border-outline-variant cursor-pointer">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A close-up shot of a luxurious serum drop being dispensed from a gold dropper. The liquid is glowing and viscous, capturing the light. The background is a soft-focus champagne silk fabric, emphasizing tactile softness and premium quality in a minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKYu4kZFQanSmvwRnKwx94-E53T0oDhq9ip-yOn8RLGPvVHfQt9OQnRvdDwixrhjxnl_E9blKMebBBBPCCo6yRWyLA0HZpArzGCRUj8T0AQFl4-gyBJZ93nazfWufL7vySYmsCaybkglaM1ctiwc_cZFxLFsdiaS-iWQzts8G-unJySxx2LYzziT9sxiLffU5Ls3R8NPELB4q1Mqm-l1PjYSCL6reqUtGREl1bVq10dlzJD5mOaHFrT9V7TYK6d1So0LmpeTOh638"/>
+</div>
+<div class="w-20 md:w-24 aspect-square bg-surface-container rounded-lg border border-transparent hover:border-outline-variant cursor-pointer transition-all">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Detailed macro shot of the premium serum bottle cap and dropper mechanism, showing fine textures of the brushed gold metal and high-quality glass. The lighting is bright and clean, characteristic of high-fashion skincare photography on a soft neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdAaRu-1Mz39NelLqrkAZJylq7WP44D38zauUqoFNe9ufuYDjnhEQcm7Mtmmv0-GN0hLwBQOiF6grz2kCFXWiq7TVcXOXmTjNcr_YcyBqAe2hcvcynExdYuZakvT5fG5HfRo7xfsxcH3CxnCwR2KFu2fLNNMNcs6p0DfwLFyXtFnvxbkueZCKWMlC9YtELhghXeAwqWWYo5ra8S-LO32WXXDxRopZHQSOQiXqlStreze7LrxXaVPnbRkQ2ImQoySrB2FmMnkTA4a8"/>
+</div>
+<div class="w-20 md:w-24 aspect-square bg-surface-container rounded-lg border border-transparent hover:border-outline-variant cursor-pointer transition-all">
+<img class="w-full h-full object-cover rounded-lg" data-alt="The premium serum bottle positioned elegantly next to a fresh white flower on a marble surface. The composition is airy and minimalist, utilizing negative space to create a sense of exclusivity and calm, using a palette of creams and subtle golds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjqjFRruy8YooXaRwCHGp6RS5uoH5ayuZgY3SSHGFJQKC96fLv6W-1mBuHYFVF7u22afqUpEd_tt67Cw0fEXgDlo4oxO_Sll-s3WLZeSIIn-Egrl72Y6LDfv_XKgA6Jz3WREm40mygCuSKD58Qnu047gYMC_zFHTpsSq3tzXta8aSXqa7Lyi9Zy3bQJp2LZmHd_4GohlNMhHyqACT36jmuzcxGoaowpnEukNUitBXMRdsrAntPRK0eUTR79nBdGa0uPsBCm2H0lww"/>
+</div>
+</div>
+</div>
+<!-- Product Details -->
+<div class="lg:col-span-5 flex flex-col justify-center space-y-8 fade-in">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-sm text-label-sm">جدید</span>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="mr-2 text-on-surface-variant font-body-md text-body-md self-center">(۴۸ نظر)</span>
+</div>
+</div>
+<h1 class="font-headline-md-mobile md:font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">سرم جوانساز رادیانس</h1>
+<p class="text-primary font-title-lg text-title-lg">۴,۸۵۰,۰۰۰ تومان</p>
+</div>
+<p class="text-on-surface-variant font-body-lg text-body-lg leading-relaxed">
+                    تجربه‌ای بی‌نظیر از درخشش و جوانی. سرم رادیانس با بهره‌گیری از تکنولوژی نانو و عصاره‌های گیاهی کمیاب، به لایه‌های عمقی پوست نفوذ کرده و خطوط ریز را از بین می‌برد.
+                </p>
+<div class="space-y-4 pt-4">
+<div class="flex items-center gap-4">
+<div class="flex items-center border border-outline-variant rounded-lg p-1 bg-surface">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-variant rounded transition-colors" onclick="this.nextElementSibling.innerText = Math.max(1, parseInt(this.nextElementSibling.innerText) - 1)">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-12 text-center font-bold">1</span>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-variant rounded transition-colors" onclick="this.previousElementSibling.innerText = parseInt(this.previousElementSibling.innerText) + 1">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="flex-1 bg-on-surface text-surface py-4 rounded-lg font-title-lg text-title-lg hover:opacity-90 transition-all active:scale-95">
+                            افزودن به سبد خرید
+                        </button>
+</div>
+<button class="w-full border-1.5 border-secondary text-secondary py-4 rounded-lg font-title-lg text-title-lg hover:bg-secondary-container/10 transition-all">
+                        خرید سریع
+                    </button>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">eco</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">۱۰۰٪ ارگانیک</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">cruelty_free</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">بدون تست حیوانی</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Tabs / Info Accordion -->
+<section class="max-w-3xl mx-auto mb-section-gap">
+<div class="border-b border-outline-variant flex gap-8 mb-8 overflow-x-auto">
+<button class="pb-4 border-b-2 border-on-surface font-title-lg text-title-lg whitespace-nowrap">توضیحات</button>
+<button class="pb-4 text-on-surface-variant hover:text-on-surface font-title-lg text-title-lg whitespace-nowrap transition-colors">ترکیبات</button>
+<button class="pb-4 text-on-surface-variant hover:text-on-surface font-title-lg text-title-lg whitespace-nowrap transition-colors">نحوه استفاده</button>
+</div>
+<div class="space-y-8 fade-in" id="tab-content">
+<div class="space-y-4">
+<h3 class="font-headline-md-mobile text-headline-md-mobile text-on-surface">جادوی درخشش</h3>
+<p class="text-on-surface-variant font-body-lg text-body-lg leading-loose">
+                        سرم جوانساز رادیانس فراتر از یک محصول مراقبتی است؛ این یک سرمایه‌گذاری برای آینده پوست شماست. فرمولاسیون منحصر به فرد ما شامل ویتامین C پایدار، هیالورونیک اسید با وزن‌های مولکولی متفاوت و عصاره گل صدتومانی است که همزمان با آبرسانی، لک‌های تیره را هدف قرار داده و بافتی مخملی به پوست می‌بخشد.
+                    </p>
+<ul class="space-y-3 pt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body-md text-body-md">افزایش خاصیت ارتجاعی پوست تا ۴۰٪ در ۴ هفته</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body-md text-body-md">کاهش محسوس عمق چروک‌های پیشانی و دور چشم</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg mt-1">check_circle</span>
+<span class="text-on-surface-variant font-body-md text-body-md">روشن‌کننده قوی و یکنواخت‌کننده تناژ پوست</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Customer Reviews -->
+<section class="mb-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="space-y-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">نظرات مشتریان</h2>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-display-lg text-on-surface">۴.۸</span>
+<div>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm">بر اساس ۴۸ نظر ثبت شده</span>
+</div>
+</div>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-variant text-on-surface px-8 py-3 rounded-lg transition-all font-title-lg text-title-lg">نوشتن نظر</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Review Card 1 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">سارا محمدی</p>
+<p class="text-on-surface-variant font-label-sm text-label-sm">خریدار تایید شده</p>
+</div>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed italic">
+                        "واقعاً شگفت‌انگیزه! بعد از دو هفته استفاده، همه متوجه درخشش پوستم شدن. بافتش خیلی سبکه و اصلاً حس چربی به جا نمیذاره."
+                    </p>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-title-lg text-title-lg text-on-surface">مریم کریمی</p>
+<p class="text-on-surface-variant font-label-sm text-label-sm">خریدار تایید شده</p>
+</div>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed italic">
+                        "عالیه برای پوست‌های حساس. من همیشه مشکل قرمزی داشتم ولی این سرم خیلی آرومش کرد. بسته‌بندی‌ش هم خیلی شیکه."
+                    </p>
+</div>
+</div>
+</section>
+<!-- Related Products Slider -->
+<section class="mb-section-gap overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface">محصولات مرتبط</h2>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-on-surface hover:text-surface transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-on-surface hover:text-surface transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Related Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container rounded-lg overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist skincare bottle design for a hydrating toner. The product is set against a clean white background with a soft peach-colored shadow. The aesthetic is modern, editorial, and clean-beauty focused with gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJIFHJuNggSn-aJeymVEtXiKbs0xtWhhtfH0BlGCtZgUT-r9_HHsPkKmw-M_SYg9z5fHTFTCZYIzWkVWnPqONVzSXWsTGaPFF7QhwmCHBO3DlIp8APvsqTi-9T7Swe7_oaZRieXT9OQyo1o3_9lKMn-H6noqGD8qJhJJG8rZHMZKOKBvfiT2eq4c2z5JLShbyhZyuqY_gu5ybfpiqArNuIZo6NYBZ0cNSGCA4jCSyfIJIVmXDGTs9CFXWMpdPM2VVvFvaGeKV4rXA"/>
+<button class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-md p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface text-center">تونر آبرسان پیونی</h3>
+<p class="text-on-surface-variant font-body-md text-body-md text-center mt-1">۱,۹۵۰,۰۰۰ تومان</p>
+</div>
+<!-- Related Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container rounded-lg overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Editorial product photography of a premium night cream in a frosted glass jar. The mood is dark and luxurious with deep charcoal and gold tones, illuminated by a single soft light source. Part of a luxury skincare collection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEv3sLx8tw6jkrlQRRc7mwOwLd6eCxY4Oj5meWW3lw51QLx0QJs26LePX8YiSG9LwsNgKlkb4VAc3sgjtcD-a9Bw-8QbThTasEH0_Hlz5Y3dKWfa6qjv1sN0ppD86imq5kGcfnZUTv3K-3TVrMtD0qvhC2-daVv2NE2totVvxjCPkQhtiGx_XlL0WS1QsEsBes6ogLwLnupN7OLhaoYPT0N-O0VvVE1rmbcMaN7uojj6veq5nxwt5k2jeaK0hGq68mV7d88bkeprQ"/>
+<button class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-md p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface text-center">کرم شب بازسازی‌کننده</h3>
+<p class="text-on-surface-variant font-body-md text-body-md text-center mt-1">۳,۴۰۰,۰۰۰ تومان</p>
+</div>
+<!-- Related Product 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container rounded-lg overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious facial oil bottle with botanical infusions visible through the glass. Surrounded by organic elements like dried herbs and stones on a minimalist cream background. High-key lighting and elegant composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaWsHKo6z_eNy4wwbmIguKEwmSn_bPrh0FwE5p8MxPqTY-lP9zvV8FDd4s5_SlEHIjVsWAnfZmkyMQGEOdVe7bO8c1-K-SiOqVW2TpmrKPOmt95VvFGAnsccbi2kH4kAkf3mBddGc79DTKHD7Y8OtgpyT5AScSbw6jwHy4goKpdjNL5xFFzFhpcGo1Kd7A_z-k42zgKUZ6wOmf_gJPlrbJVcSpjwU0TK54tTUPHwonFYkLqbf5zskXp3S0C21PNfUMpNVZFzoOpgo"/>
+<button class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-md p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface text-center">روغن صورت الکسیر</h3>
+<p class="text-on-surface-variant font-body-md text-body-md text-center mt-1">۲,۸۰۰,۰۰۰ تومان</p>
+</div>
+<!-- Related Product 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container rounded-lg overflow-hidden mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern eye cream packaging in a slim gold tube. Set in a geometric arrangement with soft shadows and a pristine white backdrop. Professional fashion-industry skincare marketing shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO1818B1pM5T95PIkCS3Vf7ILLSRSrAzPMyYZWWow0IFLJmtrucBHGYB7c4Ym29EQgJ23yZvMqBxCt4XJnoQXJw_AuMBbYqLkAX-mVrR9x-RWBbYetZNhETJ7phDUj6X4q-vFoBxg_dViQj3aKgmerNN_JK5EQu19XmNzwDgDIatG9NJLy7JtPSm4jNuo_WySUdzDT0pkJyGUvz737a5K65kl_BpT2mwveueB2N09oFxryAXO1qMBEXu_G9YI4jjqBBVgXh6bgrJI"/>
+<button class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-md p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface text-center">کرم دور چشم رادیانس</h3>
+<p class="text-on-surface-variant font-body-md text-body-md text-center mt-1">۱,۶۰۰,۰۰۰ تومان</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-[1280px] mx-auto">
+<div class="md:col-span-5 space-y-6">
+<h2 class="font-display-lg text-display-lg-mobile text-on-surface">MUSE</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-sm">
+                    الهام‌بخش زیبایی و اعتماد به نفس. ما در میوز تلاش می‌کنیم تا بهترین‌های طبیعت را با آخرین دستاوردهای علمی پیوند دهیم.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-on-surface-variant hover:text-secondary transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-2 space-y-4">
+<h4 class="font-title-lg text-title-lg text-on-surface">دسترسی سریع</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-secondary underline transition-all font-body-md text-body-md" href="#">Store Locator</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary underline transition-all font-body-md text-body-md" href="#">Shipping &amp; Returns</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary underline transition-all font-body-md text-body-md" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="md:col-span-5 space-y-6">
+<h4 class="font-title-lg text-title-lg text-on-surface">خبرنامه</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">برای دریافت جدیدترین اخبار و پیشنهادات ویژه مشترک شوید.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface border border-outline-variant rounded-lg px-4 focus:ring-1 focus:ring-secondary focus:border-secondary outline-none" placeholder="آدرس ایمیل شما" type="email"/>
+<button class="bg-on-surface text-surface px-6 py-3 rounded-lg hover:opacity-80 transition-all font-body-md text-body-md">عضویت</button>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-8 border-t border-outline-variant/30 text-center max-w-[1280px] mx-auto">
+<p class="text-on-surface-variant font-label-sm text-label-sm tracking-widest opacity-80">© 2024 MUSE COSMETICS. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for tab switching (mockup logic)
+        document.querySelectorAll('button[class*="whitespace-nowrap"]').forEach(button => {
+            button.addEventListener('click', function() {
+                // Reset siblings
+                this.parentElement.querySelectorAll('button').forEach(btn => {
+                    btn.classList.remove('border-b-2', 'border-on-surface');
+                    btn.classList.add('text-on-surface-variant');
+                });
+                // Activate clicked
+                this.classList.add('border-b-2', 'border-on-surface');
+                this.classList.remove('text-on-surface-variant');
+                
+                // Animate content refresh
+                const content = document.getElementById('tab-content');
+                content.style.opacity = '0';
+                setTimeout(() => {
+                    content.style.opacity = '1';
+                }, 200);
+            });
+        });
+    </script>
+</body></html>

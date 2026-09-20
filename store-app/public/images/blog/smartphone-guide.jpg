@@ -1,0 +1,35 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#grad6)"/>
+  
+  <!-- Smartphone illustration -->
+  <g transform="translate(300, 80)">
+    <!-- Phone body -->
+    <rect x="0" y="0" width="160" height="280" rx="30" fill="white" opacity="0.95"/>
+    <rect x="15" y="40" width="130" height="200" rx="10" fill="#333"/>
+    
+    <!-- Screen content -->
+    <rect x="25" y="50" width="110" height="20" rx="5" fill="#4CAF50"/>
+    <rect x="25" y="80" width="70" height="15" rx="3" fill="#2196F3"/>
+    <rect x="105" y="80" width="30" height="15" rx="3" fill="#FF9800"/>
+    <rect x="25" y="105" width="110" height="60" rx="5" fill="#E91E63"/>
+    <rect x="25" y="175" width="50" height="15" rx="3" fill="#9C27B0"/>
+    <rect x="85" y="175" width="50" height="15" rx="3" fill="#00BCD4"/>
+    
+    <!-- Home button -->
+    <circle cx="80" cy="260" r="15" fill="#666"/>
+    
+    <!-- Camera -->
+    <circle cx="80" cy="25" r="8" fill="#666"/>
+    
+    <!-- Speaker -->
+    <rect x="60" y="10" width="40" height="8" rx="4" fill="#666"/>
+  </g>
+  
+  <text x="400" y="380" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">راهنمای انتخاب گوشی هوشمند</text>
+</svg>

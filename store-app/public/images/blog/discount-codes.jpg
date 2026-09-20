@@ -1,0 +1,21 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#grad3)"/>
+  
+  <!-- Discount tag -->
+  <g transform="translate(300, 120)">
+    <polygon points="0,0 150,0 200,50 150,100 0,100" fill="#ff4757" opacity="0.9"/>
+    <text x="75" y="35" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">50%</text>
+    <text x="75" y="60" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14">تخفیف</text>
+    <circle cx="175" cy="50" r="15" fill="white"/>
+    <text x="175" y="56" text-anchor="middle" fill="#ff4757" font-family="Arial, sans-serif" font-size="12" font-weight="bold">%</text>
+  </g>
+  
+  <text x="400" y="280" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="24" font-weight="bold">کدهای تخفیف</text>
+  <text x="400" y="310" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="16">نحوه استفاده صحیح</text>
+</svg>

@@ -1,0 +1,29 @@
+# Next.js hub — فقط برای توسعه محلی (production از core-server استفاده می‌کند)
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: ${NODE_VERSION:-22}
+        NEXT_PUBLIC_APP_URL: http://localhost:3000
+        NEXT_PUBLIC_API_URL: http://localhost:3000/api
+    container_name: store-app-next-dev
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      MONGODB_URI: ${MONGODB_URI:-mongodb://127.0.0.1:27017/store-app}
+      JWT_SECRET: ${JWT_SECRET:-dev-only-secret-do-not-use-in-production-min-32}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET:-dev-only-secret-do-not-use-in-production-min-32}
+      NEXTAUTH_URL: http://localhost:3000
+    networks:
+      - store-dev
+
+networks:
+  store-dev:
+    driver: bridge

@@ -1,0 +1,348 @@
+<!DOCTYPE html><html dir="rtl" lang="fa" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>MUSE Admin - افزودن محصول جدید</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#f4dde3",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-dim": "#dcd9d9",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed": "#ffe088",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "on-primary-fixed": "#24181c",
+                    "on-secondary-container": "#745c00",
+                    "secondary": "#735c00",
+                    "inverse-on-surface": "#f3f0f0",
+                    "on-tertiary-fixed": "#1a1c1a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "primary": "#6b5a5f",
+                    "primary-fixed-dim": "#d7c1c7",
+                    "inverse-primary": "#d7c1c7",
+                    "surface-tint": "#6b5a5f",
+                    "tertiary-container": "#e8e7e4",
+                    "secondary-container": "#fed65b",
+                    "on-primary-container": "#746368",
+                    "primary-container": "#f8e1e7",
+                    "background": "#fcf9f8",
+                    "on-primary-fixed-variant": "#524348",
+                    "surface-variant": "#e4e2e1",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-secondary-fixed-variant": "#574500",
+                    "outline": "#7f7477",
+                    "on-surface-variant": "#4d4447",
+                    "tertiary-fixed-dim": "#c7c6c4",
+                    "on-tertiary-container": "#676765",
+                    "surface-container-high": "#eae7e7",
+                    "on-tertiary-fixed-variant": "#464745",
+                    "surface-container-highest": "#e4e2e1",
+                    "inverse-surface": "#303030",
+                    "surface-bright": "#fcf9f8",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#d0c3c6",
+                    "tertiary-fixed": "#e3e2e0",
+                    "on-surface": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#5e5f5d",
+                    "surface": "#fcf9f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "80px"
+            },
+            "fontFamily": {
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Tahoma', sans-serif;
+            background-color: #fcf9f8;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .rich-text-editor {
+            min-height: 150px;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -10px rgba(107, 90, 95, 0.08);
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm transition-all duration-300 h-20">
+<div class="max-w-[1280px] mx-auto flex justify-between items-center px-margin-desktop h-full">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-display-lg tracking-tight text-on-surface">MUSE</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-lg text-body-lg" href="#">پیش‌خوان</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-lg text-body-lg" href="#">محصولات</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-lg text-body-lg" href="#">سفارشات</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container px-4 py-2 rounded-full border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md pr-2 w-48 text-right" placeholder="جستجو در پنل..." type="text">
+</div>
+<button class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity">shopping_bag</button>
+<button class="material-symbols-outlined text-primary hover:opacity-70 transition-opacity">person</button>
+</div>
+</div>
+</header>
+<main class="pt-32 px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto">
+<!-- Header & Action Row -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">افزودن محصول جدید</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg">ایجاد یک اثر هنری جدید در مجموعه لوکس MUSE</p>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-lg border-1.5 border-outline text-on-surface-variant font-title-lg text-title-lg hover:bg-surface-container-low transition-colors duration-200">
+                    انصراف
+                </button>
+<button class="px-10 py-3 rounded-lg bg-on-background text-on-primary font-title-lg text-title-lg hover:opacity-90 shadow-lg transition-all active:scale-95">
+                    ذخیره محصول
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Right Column: Main Form -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Basic Info Card -->
+<section class="bg-white rounded-xl p-8 border border-outline-variant/30 custom-shadow">
+<div class="flex items-center gap-2 mb-8 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-primary">info</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">اطلاعات پایه</h2>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">نام محصول</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-bright border border-outline-variant/50 focus:border-secondary focus:ring-0 transition-colors text-body-lg" placeholder="مثلاً: سرم جوانساز خاویار طلایی" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">توضیحات محصول</label>
+<div class="border border-outline-variant/50 rounded-lg overflow-hidden">
+<div class="bg-surface-container-low p-2 border-b border-outline-variant/30 flex gap-4">
+<button class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary">format_bold</button>
+<button class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary">format_italic</button>
+<button class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary">format_list_bulleted</button>
+<button class="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary">link</button>
+</div>
+<textarea class="w-full px-4 py-3 bg-white border-none focus:ring-0 text-body-md no-scrollbar resize-none" placeholder="داستان این محصول را بنویسید..." rows="6"></textarea>
+</div>
+</div>
+</div>
+</section>
+<!-- Media Upload Card -->
+<section class="bg-white rounded-xl p-8 border border-outline-variant/30 custom-shadow">
+<div class="flex items-center gap-2 mb-8 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-primary">photo_library</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">تصاویر و رسانه</h2>
+</div>
+<div class="border-2 border-dashed border-outline-variant/50 rounded-xl p-12 flex flex-col items-center justify-center bg-surface-container-low/30 hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-[32px]">cloud_upload</span>
+</div>
+<p class="font-title-lg text-title-lg text-on-surface mb-2">تصاویر را اینجا رها کنید</p>
+<p class="font-body-md text-body-md text-on-surface-variant">یا برای انتخاب فایل کلیک کنید (حداکثر ۵ تصویر)</p>
+</div>
+<div class="mb-8">
+    <label class="font-label-sm text-label-sm text-on-surface-variant px-1 mb-2 block">تصویر شاخص (تصویر اصلی در لیست محصولات)</label>
+    <div class="w-full md:w-1/3 aspect-square rounded-xl bg-surface-container-low border-2 border-dashed border-primary/30 flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer group relative overflow-hidden">
+        <div class="flex flex-col items-center gap-2 group-hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[40px] text-primary">add_photo_alternate</span>
+            <span class="font-body-md">انتخاب تصویر شاخص</span>
+        </div>
+    </div>
+</div>
+<div class="border-b border-outline-variant/20 mb-6"></div>
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1 mb-2 block">گالری تصاویر محصول</label><div class="grid grid-cols-4 gap-4 mt-8">
+<div class="aspect-square rounded-lg bg-surface-container border border-outline-variant/30 flex items-center justify-center relative overflow-hidden group"><div class="absolute top-2 left-2 bg-primary text-on-primary px-2 py-0.5 rounded text-[10px] font-bold z-10 shadow-sm">شاخص</div>
+<img class="w-full h-full object-cover opacity-60" data-alt="A high-end studio product photograph of a minimalist luxury cosmetic bottle against a soft cream backdrop with elegant dramatic lighting and shadows, evoking a sense of premium quality and editorial beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFNO8l66Rnu1URRUudh7LLv-6Vzf3pjpilCWuyR-77o2TEaXPWvux7o6NTnKQGVaEoVBsYVtr6RGhIx27zL6ioPAaGD2Pzu95_IuoUkFyrc62oslblsUm1exuFQjDgUB1vI7BT95PRoxch7WbuwT56NZfvhDgE32m5snuwmtJkNrjyGP52UMqehlawdhFO0yBxctXNI-wTK7Sc4Fu8hgpB3W5OcdxKML1HA6as56pLI9_wlyMmbbKBs4tdU-NEuv4DvklKAHw26Co">
+<button class="absolute top-2 right-2 bg-error text-on-error rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="aspect-square rounded-lg bg-surface-container-low border border-dashed border-outline-variant/50 flex items-center justify-center text-outline-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</div>
+</div>
+</section>
+<!-- Inventory Card -->
+<section class="bg-white rounded-xl p-8 border border-outline-variant/30 custom-shadow">
+<div class="flex items-center gap-2 mb-8 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">موجودی و انبار</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">شناسه محصول (SKU)</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-bright border border-outline-variant/50 focus:border-secondary focus:ring-0 text-body-lg ltr text-left" placeholder="MUSE-SKU-001" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">تعداد موجود در انبار</label>
+<div class="flex items-center bg-surface-bright border border-outline-variant/50 rounded-lg overflow-hidden">
+<button class="px-4 py-3 text-primary hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">add</span></button>
+<input class="w-full bg-transparent border-none text-center focus:ring-0 font-title-lg text-title-lg" type="number" value="0">
+<button class="px-4 py-3 text-primary hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">remove</span></button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Left Column: Settings & Pricing -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Status Card -->
+<section class="bg-white rounded-xl p-8 border border-outline-variant/30 custom-shadow">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-title-lg text-title-lg text-on-surface">وضعیت انتشار</h2>
+<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm">پیش‌نویس</span>
+</div>
+<div class="flex flex-col gap-4">
+<label class="relative inline-flex items-center cursor-pointer justify-between w-full p-4 rounded-lg bg-surface-container-low">
+<span class="font-body-md text-body-md text-on-surface">نمایش در فروشگاه</span>
+<input checked="" class="sr-only peer" type="checkbox" value="">
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[18px] after:left-[calc(100%-24px)] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+<div class="pt-4 space-y-4">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="font-body-md text-body-md">زمان‌بندی: بلافاصله</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+<span class="font-body-md text-body-md">قابلیت مشاهده: عمومی</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Card -->
+<section class="bg-white rounded-xl p-8 border border-outline-variant/30 custom-shadow">
+<div class="flex items-center gap-2 mb-8 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-primary">sell</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">قیمت‌گذاری</h2>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">قیمت اصلی (تومان)</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-bright border border-outline-variant/50 focus:border-secondary focus:ring-0 font-title-lg text-title-lg text-left ltr" placeholder="۰" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">قیمت با تخفیف (تومان)</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-bright border border-outline-variant/50 focus:border-secondary focus:ring-0 font-title-lg text-title-lg text-left ltr" placeholder="۰" type="text">
+</div>
+<div class="p-4 bg-secondary-container/10 border border-secondary/20 rounded-lg">
+<p class="font-body-md text-body-md text-on-secondary-container">در حال حاضر هیچ تخفیفی اعمال نشده است.</p>
+</div>
+</div>
+</section>
+<!-- Categories & Brand Card -->
+<section class="bg-white rounded-xl p-8 border border-outline-variant/30 custom-shadow">
+<div class="flex items-center gap-2 mb-8 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-primary">category</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">دسته‌بندی و برند</h2>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">دسته‌بندی</label>
+<select class="w-full px-4 py-3 rounded-lg bg-surface-bright border border-outline-variant/50 focus:border-secondary focus:ring-0 text-body-lg appearance-none">
+<option>مراقبت از پوست</option>
+<option>آرایشی</option>
+<option>عطر و ادکلن</option>
+<option>مراقبت از مو</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">برند</label>
+<select class="w-full px-4 py-3 rounded-lg bg-surface-bright border border-outline-variant/50 focus:border-secondary focus:ring-0 text-body-lg appearance-none">
+<option>MUSE Original</option>
+<option>L'Artiste</option>
+<option>Éclat</option>
+</select>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 text-primary font-label-sm text-label-sm hover:bg-primary-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            افزودن دسته‌بندی جدید
+                        </button>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+
+<script>
+        // Simple Interaction logic for demo
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('focus', () => {
+                element.closest('.bg-white')?.classList.add('ring-1', 'ring-primary/20');
+            });
+            element.addEventListener('blur', () => {
+                element.closest('.bg-white')?.classList.remove('ring-1', 'ring-primary/20');
+            });
+        });
+
+        // Drag and drop visual feedback
+        const dropZone = document.querySelector('.border-dashed');
+        if(dropZone) {
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    dropZone.classList.add('bg-primary-container/20', 'border-primary');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('bg-primary-container/20', 'border-primary');
+                }, false);
+            });
+        }
+    </script>
+
+
+</body></html>

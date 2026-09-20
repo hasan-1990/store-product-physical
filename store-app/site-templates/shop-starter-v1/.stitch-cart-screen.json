@@ -1,0 +1,28 @@
+﻿{
+    "id":  1,
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"name\":\"projects/3080141817154658487/screens/c31142e745c24186935878150c3cd767\",\"title\":\"سبد خرید و تسویه حساب\",\"screenshot\":{\"name\":\"projects/3080141817154658487/files/1070471963846687553\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLu1YreQ4PywgS38snthPhQJkEyn98GHhQkSC9mlrEDbwHGhrfCECEKlZRSW8xeQBuiqgYhQPZfvjA03HbV1kfyR54EBQPNjLzWhMFlb59UED1nu3mLNVdPdX8H5J4zTEpxohQjg4HyVzhSjgqMIFBuNu8VZFmqQKvayXkkCcQ77ZL-FazqK9DRWLSiESr8AlW4l-6W2flpkVhz8d5h2iGfnsOKHPPu7H1UiTJm4tIif7UPzyO23wQkJvFs\"},\"htmlCode\":{\"name\":\"projects/3080141817154658487/files/338443455687000183\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1NGQ1OTJjODg1NTIwNDRmNWYzOWUyMDhmMzI1EgsSBxCR5_i8ghUYAZIBIwoKcHJvamVjdF9pZBIVQhMzMDgwMTQxODE3MTU0NjU4NDg3\u0026filename=\u0026opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"3952\",\"deviceType\":\"DESKTOP\"}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "deviceType":  "DESKTOP",
+                                             "height":  "3952",
+                                             "htmlCode":  {
+                                                              "downloadUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1NGQ1OTJjODg1NTIwNDRmNWYzOWUyMDhmMzI1EgsSBxCR5_i8ghUYAZIBIwoKcHJvamVjdF9pZBIVQhMzMDgwMTQxODE3MTU0NjU4NDg3\u0026filename=\u0026opi=89354086",
+                                                              "mimeType":  "text/html",
+                                                              "name":  "projects/3080141817154658487/files/338443455687000183"
+                                                          },
+                                             "name":  "projects/3080141817154658487/screens/c31142e745c24186935878150c3cd767",
+                                             "screenshot":  {
+                                                                "downloadUrl":  "https://lh3.googleusercontent.com/aida/AP1WRLu1YreQ4PywgS38snthPhQJkEyn98GHhQkSC9mlrEDbwHGhrfCECEKlZRSW8xeQBuiqgYhQPZfvjA03HbV1kfyR54EBQPNjLzWhMFlb59UED1nu3mLNVdPdX8H5J4zTEpxohQjg4HyVzhSjgqMIFBuNu8VZFmqQKvayXkkCcQ77ZL-FazqK9DRWLSiESr8AlW4l-6W2flpkVhz8d5h2iGfnsOKHPPu7H1UiTJm4tIif7UPzyO23wQkJvFs",
+                                                                "name":  "projects/3080141817154658487/files/1070471963846687553"
+                                                            },
+                                             "title":  "سبد خرید و تسویه حساب",
+                                             "width":  "2560"
+                                         }
+               }
+}

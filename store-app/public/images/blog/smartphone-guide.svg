@@ -1,0 +1,12 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f0f9ff"/>
+  <rect x="50" y="50" width="300" height="200" fill="#e0f2fe" rx="10"/>
+  <rect x="100" y="80" width="200" height="120" fill="#0284c7" rx="15"/>
+  <rect x="120" y="100" width="160" height="80" fill="#0369a1" rx="10"/>
+  <circle cx="150" cy="120" r="8" fill="white"/>
+  <circle cx="180" cy="120" r="8" fill="white"/>
+  <circle cx="210" cy="120" r="8" fill="white"/>
+  <circle cx="240" cy="120" r="8" fill="white"/>
+  <rect x="140" y="145" width="120" height="25" fill="#075985" rx="5"/>
+  <text x="200" y="220" text-anchor="middle" fill="#0c4a6e" font-family="Arial" font-size="12">گوشی هوشمند ۲۰۲۴</text>
+</svg>

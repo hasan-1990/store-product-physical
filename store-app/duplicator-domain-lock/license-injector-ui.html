@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تزریق لایسنس خودکار</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: right;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .upload-section {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            background: #f8f9fa;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-section:hover {
+            border-color: #667eea;
+            background: #f0f2ff;
+        }
+        
+        .upload-section.has-file {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+        
+        .file-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .product-info {
+            background: #f8f9fa;
+            border-right: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: Tahoma;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .inject-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .inject-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .inject-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .features {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff3cd;
+            border-radius: 8px;
+        }
+        
+        .features h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .features ul {
+            margin-right: 20px;
+            color: #856404;
+        }
+        
+        .features li {
+            margin-bottom: 8px;
+        }
+        
+        .result {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .result.success {
+            background: #d4edda;
+            border: 2px solid #c3e6cb;
+        }
+        
+        .result.error {
+            background: #f8d7da;
+            border: 2px solid #f5c6cb;
+        }
+        
+        .result h3 {
+            margin-bottom: 15px;
+        }
+        
+        .download-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .download-link:hover {
+            background: #218838;
+        }
+        
+        .progress {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⭐ فایل محصول دیجیتال</h1>
+        </div>
+        
+        <div class="card">
+            <h2 style="margin-bottom: 20px; color: #667eea;">
+                📦 انتخاب از فایل منیجر
+            </h2>
+            
+            <!-- بخش آپلود فایل -->
+            <div class="upload-section" id="uploadSection">
+                <div class="file-icon">📁</div>
+                <p style="font-size: 16px; margin-bottom: 10px;">
+                    <strong>فایل از قابل منیجر انتخاب شد</strong>
+                </p>
+                <p style="font-size: 14px; color: #666;" id="filePath">
+                    uploads/digital-products/minute.zip/
+                </p>
+                <p style="font-size: 12px; color: #28a745; margin-top: 10px;">
+                    ✓ فایل پردازش برای تزریق لایسنس
+                </p>
+                <input type="file" id="zipFile" class="file-input" accept=".zip">
+            </div>
+            
+            <!-- اطلاعات محصول -->
+            <div class="product-info">
+                <h3 style="margin-bottom: 15px; color: #667eea;">
+                    🔒 تزریق خودکار لایسنس
+                </h3>
+                <p style="margin-bottom: 10px;">
+                    <strong>برای محصولات وردپرس (قالب و افزونه)</strong>
+                </p>
+                <div style="background: white; padding: 15px; border-radius: 5px; margin-top: 15px;">
+                    <p style="margin-bottom: 5px;">
+                        <strong>نام فایل:</strong> minute.zip
+                    </p>
+                    <p>
+                        <strong>شناسه محصول:</strong> <span style="color: #667eea;">ghalb-minute</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- فرم دامنه -->
+            <form id="licenseForm">
+                <div class="form-group">
+                    <label for="domain">🌐 دامنه مجاز برای نصب:</label>
+                    <input 
+                        type="text" 
+                        id="domain" 
+                        name="domain" 
+                        placeholder="example.com (بدون www)"
+                        required
+                    >
+                    <small style="color: #666; font-size: 12px; display: block; margin-top: 5px;">
+                        این فایل فقط روی دامنه وارد شده قابل نصب خواهد بود
+                    </small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="expires">⏰ تاریخ انقضا (اختیاری):</label>
+                    <input 
+                        type="date" 
+                        id="expires" 
+                        name="expires"
+                    >
+                </div>
+                
+                <button type="submit" class="inject-btn" id="injectBtn">
+                    <span>✏️</span>
+                    <span>تزریق لایسنس</span>
+                    <span>❤️</span>
+                </button>
+            </form>
+            
+            <!-- پروگرس بار -->
+            <div class="progress" id="progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill">0%</div>
+                </div>
+                <p style="text-align: center; margin-top: 10px; color: #666;">
+                    در حال پردازش فایل...
+                </p>
+            </div>
+            
+            <!-- نتیجه -->
+            <div class="result" id="result"></div>
+            
+            <!-- ویژگی‌ها -->
+            <div class="features">
+                <h3>💡 این ویژگی برای:</h3>
+                <ul>
+                    <li>قالب‌های وردپرس (.zip)</li>
+                    <li>افزونه‌های وردپرس (.zip)</li>
+                    <li>تزریق خودکار کدهای لایسنس و فعال‌سازی</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const form = document.getElementById('licenseForm');
+        const uploadSection = document.getElementById('uploadSection');
+        const fileInput = document.getElementById('zipFile');
+        const injectBtn = document.getElementById('injectBtn');
+        const progress = document.getElementById('progress');
+        const progressFill = document.getElementById('progressFill');
+        const result = document.getElementById('result');
+        
+        // فایل از قبل انتخاب شده است
+        let selectedFile = {
+            name: 'minute.zip',
+            path: 'uploads/digital-products/minute.zip',
+            productId: 'ghalb-minute'
+        };
+        
+        // کلیک روی بخش آپلود
+        uploadSection.addEventListener('click', function() {
+            fileInput.click();
+        });
+        
+        // تغییر فایل
+        fileInput.addEventListener('change', function(e) {
+            if (this.files.length > 0) {
+                selectedFile.name = this.files[0].name;
+                uploadSection.classList.add('has-file');
+                document.getElementById('filePath').textContent = 'فایل انتخاب شده: ' + this.files[0].name;
+            }
+        });
+        
+        // ارسال فرم
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const domain = document.getElementById('domain').value;
+            const expires = document.getElementById('expires').value;
+            
+            if (!domain) {
+                alert('لطفاً دامنه را وارد کنید');
+                return;
+            }
+            
+            // نمایش پروگرس
+            progress.style.display = 'block';
+            result.style.display = 'none';
+            injectBtn.disabled = true;
+            injectBtn.innerHTML = '<span>⏳</span><span>در حال تزریق لایسنس...</span>';
+            
+            // شبیه‌سازی پروگرس
+            let progressValue = 0;
+            const progressInterval = setInterval(() => {
+                progressValue += 5;
+                if (progressValue <= 90) {
+                    progressFill.style.width = progressValue + '%';
+                    progressFill.textContent = progressValue + '%';
+                }
+            }, 200);
+            
+            try {
+                // ارسال به سرور
+                const formData = new FormData();
+                if (fileInput.files.length > 0) {
+                    formData.append('zipFile', fileInput.files[0]);
+                } else {
+                    formData.append('existingFile', selectedFile.path);
+                }
+                formData.append('domain', domain);
+                formData.append('expires', expires);
+                formData.append('productId', selectedFile.productId);
+                
+                const response = await fetch('process-lock.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                clearInterval(progressInterval);
+                progressFill.style.width = '100%';
+                progressFill.textContent = '100%';
+                
+                setTimeout(() => {
+                    progress.style.display = 'none';
+                    result.style.display = 'block';
+                    
+                    if (data.success) {
+                        result.className = 'result success';
+                        result.innerHTML = `
+                            <h3>✅ تزریق لایسنس با موفقیت انجام شد!</h3>
+                            <div style="background: white; padding: 15px; border-radius: 5px; margin-top: 15px;">
+                                <p><strong>📦 فایل قفل‌شده:</strong> ${data.lockedFile}</p>
+                                <p><strong>🔒 دامنه مجاز:</strong> ${data.domain}</p>
+                                <p><strong>📊 حجم:</strong> ${data.size}</p>
+                                ${data.expires ? '<p><strong>⏰ تاریخ انقضا:</strong> ' + data.expires + '</p>' : ''}
+                            </div>
+                            <a href="${data.downloadUrl}" class="download-link" download>
+                                ⬇️ دانلود فایل قفل‌شده
+                            </a>
+                            <p style="margin-top: 15px; padding: 10px; background: #fff; border-radius: 5px;">
+                                🎉 فایل آماده توزیع است! فقط روی دامنه <strong>${data.domain}</strong> قابل نصب است.
+                            </p>
+                        `;
+                    } else {
+                        result.className = 'result error';
+                        result.innerHTML = `
+                            <h3>❌ خطا در تزریق لایسنس</h3>
+                            <p>${data.message}</p>
+                        `;
+                    }
+                    
+                    injectBtn.disabled = false;
+                    injectBtn.innerHTML = '<span>✏️</span><span>تزریق لایسنس</span><span>❤️</span>';
+                }, 500);
+                
+            } catch (error) {
+                clearInterval(progressInterval);
+                progress.style.display = 'none';
+                result.style.display = 'block';
+                result.className = 'result error';
+                result.innerHTML = `
+                    <h3>❌ خطا</h3>
+                    <p>خطا در اتصال به سرور: ${error.message}</p>
+                `;
+                injectBtn.disabled = false;
+                injectBtn.innerHTML = '<span>✏️</span><span>تزریق لایسنس</span><span>❤️</span>';
+            }
+        });
+    </script>
+</body>
+</html>

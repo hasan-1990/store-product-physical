@@ -1,0 +1,116 @@
+# ==============================================================================
+# Global & Root Git Ignore for Store-App Project
+# ==============================================================================
+
+# --- Sensitive Environment & Secrets (CRITICAL) ---
+.env
+.env*
+*.env
+*.env.local
+*.env.production
+*.env.docker
+*.env.bak
+!.env.example
+!*.env.example
+!store-app/.env.example
+!store-app/.env.email.example
+!store-app/.env.production.example
+!store-app/.env.smtp.example
+
+# --- SSL Certificates & Private Keys (CRITICAL) ---
+ssl/
+store-app/ssl/
+*.pem
+*.key
+*.crt
+*.csr
+*.pfx
+*.p12
+
+# --- Database Engines, Raw Data & Backups (CRITICAL) ---
+mangodb/
+database-backup/
+store-app/database-backup/
+*.wt
+*.turtle
+*.lock
+*.bson
+*.dump
+*.sql
+*.sqlite
+*.sqlite3
+
+# --- Dependencies ---
+node_modules/
+store-app/node_modules/
+site-templates/*/node_modules/
+.pnp
+.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+
+# --- Next.js & Build Artifacts ---
+.next/
+store-app/.next/
+site-templates/*/.next/
+.next-rocket-cache/
+store-app/.next-rocket-cache/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# --- User Uploads & Generated Media ---
+uploads/
+store-app/uploads/
+public/uploads/
+store-app/public/uploads/
+licensed-files/
+store-app/licensed-files/
+provisioned-sites/*
+!provisioned-sites/README.md
+store-app/provisioned-sites/*
+!store-app/provisioned-sites/README.md
+locked-backups/
+locked-cache/
+store-app/duplicator-domain-lock/locked-backups/
+store-app/duplicator-domain-lock/locked-cache/
+
+# --- Logs, Debug & Diagnostics ---
+logs/
+store-app/logs/
+diagnostics/
+store-app/diagnostics/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Temporary & Scratch Files ---
+temp/
+store-app/temp/
+temp-missing/
+store-app/temp-missing/
+*.tmp
+*.temp
+store-app/%USERPROFILE%/
+%USERPROFILE%/
+
+# --- Testing & Coverage ---
+coverage/
+.nyc_output/
+
+# --- IDEs, Operating Systems & Tooling ---
+.vscode/
+.idea/
+.cursor/
+.qodo/
+.claude/
+.mcp-data/
+.DS_Store
+Thumbs.db
+desktop.ini

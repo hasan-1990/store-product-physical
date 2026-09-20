@@ -1,0 +1,79 @@
+# Development & secrets — never bake into image layers
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+.next/
+out/
+build/
+dist/
+
+# Development
+.env.local
+.env.development.local
+.env.test.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Misc
+.git/
+.gitignore
+README.md
+*.md
+!DOCKER-DEPLOYMENT-GUIDE.md
+!README.docker.md
+
+# Backup files
+database-backup/
+backups/
+*.dump
+*.tar.gz
+*.zip
+
+# Scripts (will be copied separately)
+*.ps1
+*.cmd
+
+# Temporary files
+tmp/
+temp/
+.cache/
+.parcel-cache/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Docker files (will be used in build)
+!Dockerfile
+!Dockerfile.production
+!docker-compose.yml
+!.dockerignore
+
+# Keep necessary scripts
+!scripts/
+!nginx/

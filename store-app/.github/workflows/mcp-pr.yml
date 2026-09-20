@@ -1,0 +1,17 @@
+name: "MCP PR trigger"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  mcp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate workflow syntax
+        run: echo "Workflow syntax is valid."
