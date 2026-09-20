@@ -9,9 +9,9 @@ describe('core-shared host', () => {
   });
 
   it('isHubHost recognizes configured hub domains', () => {
-    const hubs = parseHubDomains('localhost,127.0.0.1,fathemes.com');
+    const hubs = parseHubDomains('localhost,127.0.0.1,example.com');
     assert.equal(isHubHost('localhost', hubs), true);
-    assert.equal(isHubHost('www.fathemes.com', hubs), true);
+    assert.equal(isHubHost('www.example.com', hubs), true);
     assert.equal(isHubHost('tenant-shop.ir', hubs), false);
   });
 });

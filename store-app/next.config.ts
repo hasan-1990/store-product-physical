@@ -101,15 +101,7 @@ const nextConfig: NextConfig = {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'fathemes.com',
-      },
-      {
-        protocol: 'http',
-        hostname: 'fathemes.com',
-      },
-      {
+                  {
         protocol: 'https',
         hostname: '**',
       },

@@ -15,7 +15,7 @@ npm run core:dev
 ```env
 CORE_SERVER_PORT=4000
 MONGODB_URI=mongodb://127.0.0.1:27017/store-app
-HUB_DOMAINS=localhost,127.0.0.1,fathemes.com,www.fathemes.com
+HUB_DOMAINS=localhost,127.0.0.1,yourdomain.com,www.yourdomain.com
 ```
 
 ## Production (Docker)

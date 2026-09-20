@@ -6,7 +6,7 @@ const generateSitemap = async (): Promise<string> => {
   try {
     // دریافت تنظیمات عمومی از MongoDB
     const globalSettings = await getGlobalSEOSettings();
-    const baseURL = globalSettings?.siteUrl || 'https://www.fathemes.com';
+    const baseURL = globalSettings?.siteUrl || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
     
     // دریافت صفحات SEO از MongoDB
     const seoPages = await getAllSEOPages(false); // فقط صفحات فعال
@@ -130,7 +130,7 @@ const generateSitemap = async (): Promise<string> => {
     console.error('خطا در تولید sitemap:', error);
     
     // Fallback sitemap
-    const baseURL = 'https://www.fathemes.com';
+    const baseURL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
     const currentDate = new Date().toISOString().split('T')[0];
     
     return `<?xml version="1.0" encoding="UTF-8"?>

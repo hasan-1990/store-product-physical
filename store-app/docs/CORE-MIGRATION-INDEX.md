@@ -34,7 +34,7 @@ npm run deploy:up         # production: core-server + nginx
 | متغیر | پیش‌فرض |
 |--------|---------|
 | `CORE_SERVER_PORT` | `4000` |
-| `HUB_DOMAINS` | `localhost,127.0.0.1,fathemes.com,...` |
+| `HUB_DOMAINS` | `localhost,127.0.0.1,example.com,...` |
 | `MONGODB_URI` | hub DB |
 | `TENANT_ADMIN_EMAIL` | `admin@muse.local` |
 | `TENANT_ADMIN_PASSWORD` | برای seed tenant |

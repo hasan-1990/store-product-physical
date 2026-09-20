@@ -120,7 +120,7 @@
 - **دیتابیس:** MongoDB (Atlas در production)
 - **کش:** Redis اختیاری با fallback حافظه
 - **هاست:** Linux + Docker توصیه‌شده
-- **دامنه نمونه:** fathemes.com (در تنظیمات cookie)
+- **دامنه نمونه:** example.com (در تنظیمات cookie)
 
 ## ۸. خارج از Scope (فعلاً)
 

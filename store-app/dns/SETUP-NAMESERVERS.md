@@ -1,9 +1,9 @@
-# راهنمای تنظیم Nameserver برای fathemes.com
+# راهنمای تنظیم Nameserver برای example.com
 
 ## ✅ وضعیت فعلی سرور DNS
 - **سرور DNS:** CoreDNS (نصب شده و فعال)
-- **IP سرور:** `91.107.175.150`
-- **Zone File:** `/etc/coredns/db.fathemes.com`
+- **IP سرور:** `YOUR_SERVER_IP`
+- **Zone File:** `/etc/coredns/db.example.com`
 - **وضعیت:** ✅ فعال و تست شده
 
 ## 📋 مراحل تنظیم در رجیسترار دامنه
@@ -12,8 +12,8 @@
 در پنل رجیسترار دامنه (مثلاً nic.ir یا سایر رجیستراها) باید **Glue Records** را ثبت کنید:
 
 ```
-ns1.fathemes.com    →    91.107.175.150
-ns2.fathemes.com    →    91.107.175.150
+ns1.example.com    →    YOUR_SERVER_IP
+ns2.example.com    →    YOUR_SERVER_IP
 ```
 
 **توجه:** این مرحله **ضروری** است چون nameserver‌ها جزء خود دامنه هستند.
@@ -22,8 +22,8 @@ ns2.fathemes.com    →    91.107.175.150
 بعد از ثبت Glue Records، nameserver‌های دامنه را تنظیم کنید:
 
 ```
-Primary NS:     ns1.fathemes.com
-Secondary NS:   ns2.fathemes.com
+Primary NS:     ns1.example.com
+Secondary NS:   ns2.example.com
 ```
 
 ### قدم 3: صبر برای Propagation
@@ -34,43 +34,43 @@ Secondary NS:   ns2.fathemes.com
 
 ### تست محلی (روی سرور)
 ```bash
-dig @127.0.0.1 fathemes.com
-dig @127.0.0.1 fathemes.com NS
+dig @127.0.0.1 example.com
+dig @127.0.0.1 example.com NS
 ```
 
 ### تست عمومی (بعد از propagation)
 ```bash
 # تست مستقیم از nameserver شما
-nslookup fathemes.com ns1.fathemes.com
-dig @91.107.175.150 fathemes.com
+nslookup example.com ns1.example.com
+dig @YOUR_SERVER_IP example.com
 
 # تست از DNS عمومی
-nslookup fathemes.com 8.8.8.8
-dig @8.8.8.8 fathemes.com
+nslookup example.com 8.8.8.8
+dig @8.8.8.8 example.com
 ```
 
 ### تست آنلاین
-- https://dnschecker.org/#A/fathemes.com
-- https://www.whatsmydns.net/#A/fathemes.com
-- https://mxtoolbox.com/SuperTool.aspx?action=a%3afathemes.com
+- https://dnschecker.org/#A/example.com
+- https://www.whatsmydns.net/#A/example.com
+- https://mxtoolbox.com/SuperTool.aspx?action=a%3aexample.com
 
 ## 📝 رکوردهای DNS فعلی
 
 ```
-fathemes.com.           IN  A       91.107.175.150
-www.fathemes.com.       IN  A       91.107.175.150
-ns1.fathemes.com.       IN  A       91.107.175.150
-ns2.fathemes.com.       IN  A       91.107.175.150
+example.com.           IN  A       YOUR_SERVER_IP
+www.example.com.       IN  A       YOUR_SERVER_IP
+ns1.example.com.       IN  A       YOUR_SERVER_IP
+ns2.example.com.       IN  A       YOUR_SERVER_IP
 
-fathemes.com.           IN  NS      ns1.fathemes.com.
-fathemes.com.           IN  NS      ns2.fathemes.com.
+example.com.           IN  NS      ns1.example.com.
+example.com.           IN  NS      ns2.example.com.
 ```
 
 ## 🔧 دستورات مدیریت
 
 ### ریستارت DNS Server
 ```bash
-ssh root@91.107.175.150
+ssh root@YOUR_SERVER_IP
 systemctl restart coredns
 systemctl status coredns
 ```
@@ -78,7 +78,7 @@ systemctl status coredns
 ### ویرایش Zone File
 ```bash
 # روی سرور
-nano /etc/coredns/db.fathemes.com
+nano /etc/coredns/db.example.com
 
 # بعد از تغییرات حتماً Serial را افزایش دهید
 # مثال: 2025121401 → 2025121402
@@ -112,7 +112,7 @@ systemctl status coredns
 netstat -tulpn | grep :53
 
 # تست داخلی
-dig @127.0.0.1 fathemes.com
+dig @127.0.0.1 example.com
 
 # چک فایروال
 ufw status
@@ -133,7 +133,7 @@ iptables -A INPUT -p udp --dport 53 -j ACCEPT
 ## 📞 پشتیبانی
 در صورت بروز مشکل، فایل‌های زیر را بررسی کنید:
 - `/etc/coredns/Corefile` - تنظیمات اصلی
-- `/etc/coredns/db.fathemes.com` - Zone file دامنه
+- `/etc/coredns/db.example.com` - Zone file دامنه
 - `journalctl -u coredns` - لاگ‌های سرویس
 
 ---

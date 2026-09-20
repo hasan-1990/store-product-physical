@@ -18,7 +18,7 @@ REDIS_URL=redis://...
 
 # core-server (فاز ۱+)
 CORE_SERVER_PORT=4000
-HUB_DOMAINS=fathemes.com,www.fathemes.com
+HUB_DOMAINS=example.com,www.example.com
 
 # ادمین پیش‌فرض سایت مشتری (provisioning seed)
 TENANT_ADMIN_EMAIL=admin@muse.local

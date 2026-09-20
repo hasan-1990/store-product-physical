@@ -8,8 +8,15 @@ import { NextResponse } from "next/server";
 function getCookieDomain(): string | undefined {
   if (process.env.NODE_ENV !== 'production') return undefined;
   if (process.env.NEXTAUTH_COOKIE_DOMAIN) return process.env.NEXTAUTH_COOKIE_DOMAIN;
-  // Fallback to existing behavior
-  return '.fathemes.com';
+  if (process.env.NEXTAUTH_URL) {
+    try {
+      const url = new URL(process.env.NEXTAUTH_URL);
+      return url.hostname === 'localhost' ? undefined : url.hostname;
+    } catch {
+      return undefined;
+    }
+  }
+  return undefined;
 }
 
 export const authOptions: NextAuthOptions = {

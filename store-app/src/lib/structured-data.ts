@@ -359,22 +359,19 @@ export function buildOrganizationSchema(baseUrl: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "فاتمز - فروشگاه قالب و افزونه وردپرس",
-    "alternateName": "fathemes",
+    "name": "فروشگاه آنلاین",
+    "alternateName": "Online Store",
     "url": baseUrl,
     "logo": `${baseUrl}/logo.png`,
-    "description": "خرید قالب و افزونه وردپرس اورجینال با تخفیف ویژه، پشتیبانی رایگان 6 ماهه و دانلود نامحدود",
-    "email": "info@fathemes.com",
-    "telephone": "+98-21-XXXXXXXX",
+    "description": "فروشگاه جامع محصولات فیزیکی و دانلودی با ارسال سریع و پشتیبانی کامل",
+    "email": "info@example.com",
+    "telephone": "+98-21-00000000",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "IR",
       "addressLocality": "تهران"
     },
-    "sameAs": [
-      "https://www.instagram.com/fathemes",
-      "https://t.me/fathemes"
-    ],
+    "sameAs": [],
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+98-21-XXXXXXXX",

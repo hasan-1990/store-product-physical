@@ -1,17 +1,17 @@
 $TTL    604800
-@       IN      SOA     ns1.fathemes.com. admin.fathemes.com. (
+@       IN      SOA     ns1.example.com. admin.example.com. (
                               2025122301         ; Serial
                               604800         ; Refresh
                                86400         ; Retry
                              2419200         ; Expire
                               604800 )       ; Negative Cache TTL
 ;
-@       IN      NS      ns1.fathemes.com.
-@       IN      NS      ns2.fathemes.com.
-@       IN      A       91.107.175.150
-ns1     IN      A       91.107.175.150
-ns2     IN      A       91.107.175.150
-www     IN      A       91.107.175.150
+@       IN      NS      ns1.example.com.
+@       IN      NS      ns2.example.com.
+@       IN      A       YOUR_SERVER_IP
+ns1     IN      A       YOUR_SERVER_IP
+ns2     IN      A       YOUR_SERVER_IP
+www     IN      A       YOUR_SERVER_IP
 
 ; Google Search Console Verification
 @       IN      TXT     "google-site-verification=rhyF0g2AX9PYfj1nvC9oAEXU4ZJZPkyvy1C3PuJhVz8"

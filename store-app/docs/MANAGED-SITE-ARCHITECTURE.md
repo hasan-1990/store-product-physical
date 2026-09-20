@@ -11,7 +11,7 @@
 | موضوع | تصمیم |
 |--------|--------|
 | وب‌سرور production | **یک Express** (`packages/core-server`) |
-| هاب `fathemes.com` | **Express** در production (`npm run dev` برای Next اختیاری) |
+| هاب `example.com` | **Express** در production (`npm run dev` برای Next اختیاری) |
 | هر مشتری | **بدون** وب‌سرور جدا — فقط DB جدا (+ پوشه uploads سبک) |
 | قالب‌ها (`site-templates/`) | پکیج UI/API — dev با Next؛ production از Express |
 | دیتابیس | **MongoDB** — هاب یک DB؛ هر مشتری یک DB جدا |
@@ -27,7 +27,7 @@ flowchart TB
   subgraph clients [کاربران]
     Buyer[خریدار قالب]
     Visitor[بازدیدکننده فروشگاه مشتری]
-    HubUser[کاربر هاب fathemes.com]
+    HubUser[کاربر هاب example.com]
   end
 
   subgraph dns [DNS]
@@ -160,7 +160,7 @@ upstream core_server {
 
 server {
     listen 443 ssl http2;
-    server_name shop-moshtari.com www.fathemes.com;
+    server_name shop-moshtari.com www.example.com;
     location / {
         proxy_pass http://core_server;
         proxy_set_header Host $host;
@@ -209,7 +209,7 @@ SERVER_PUBLIC_IP=1.2.3.4
 PROVISIONING_ENABLED=true
 REDIS_URL=redis://...
 CORE_SERVER_PORT=4000
-HUB_DOMAINS=fathemes.com,www.fathemes.com
+HUB_DOMAINS=example.com,www.example.com
 TENANT_ADMIN_EMAIL=admin@muse.local
 TENANT_ADMIN_PASSWORD=...
 ```

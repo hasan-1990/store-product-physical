@@ -231,10 +231,10 @@ export default withAuth(
     ];
 
     // ===== 2. HTTPS & WWW REDIRECT (Production only) =====
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' && process.env.PREFERRED_HOST) {
       const protocol = request.headers.get('x-forwarded-proto') || 'http';
       const host = request.headers.get('host') || '';
-      const preferredHost = 'www.fathemes.com';
+      const preferredHost = process.env.PREFERRED_HOST;
       
       // Redirect HTTP to HTTPS
       if (protocol !== 'https') {
@@ -242,7 +242,7 @@ export default withAuth(
         return NextResponse.redirect(url, 301);
       }
       
-      // Redirect non-www to www (or vice versa based on your preference)
+      // Redirect non-preferred host
       if (host !== preferredHost && !host.startsWith('localhost')) {
         const url = `https://${preferredHost}${pathname}${request.nextUrl.search}`;
         return NextResponse.redirect(url, 301);

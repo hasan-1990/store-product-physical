@@ -264,7 +264,7 @@ function generateLicenseKey(productId: string, domain: string): string {
 
 // اعتبارسنجی دامنه (با پشتیبانی subdomain)
 function isValidDomain(domain: string): boolean {
-  // پشتیبانی از subdomain مثل 5.fathemes.com
+  // پشتیبانی از subdomain مثل sub.example.com
   const domainRegex = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
   return domainRegex.test(domain) && domain.length >= 3 && domain.length <= 253;
 }

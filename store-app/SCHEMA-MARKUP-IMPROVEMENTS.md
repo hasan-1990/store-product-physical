@@ -7,7 +7,7 @@
 {
   "@type": "Organization",
   "name": "فاتمز - فروشگاه قالب و افزونه وردپرس",
-  "url": "https://www.fathemes.com",
+  "url": "https://www.example.com",
   "logo": "...",
   "contactPoint": {...},
   "sameAs": ["Instagram", "Telegram"],
@@ -24,7 +24,7 @@
   "@type": "WebSite",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://www.fathemes.com/products?search={search_term_string}"
+    "target": "https://www.example.com/products?search={search_term_string}"
   }
 }
 ```
@@ -99,7 +99,7 @@
 ```
 https://search.google.com/test/rich-results
 ```
-URL تست: `https://www.fathemes.com/products/...`
+URL تست: `https://www.example.com/products/...`
 
 ### گام 2: Schema Markup Validator
 ```

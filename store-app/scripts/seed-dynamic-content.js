@@ -93,7 +93,7 @@ const defaultContents = [
   },
   {
     key: 'footer_copyright',
-    value: '© 2024 فروشگاه فاتم. تمامی حقوق محفوظ است.',
+    value: '© 2024 فروشگاه آنلاین. تمامی حقوق محفوظ است.',
     category: 'footer',
     description: 'متن کپی‌رایت',
     type: 'text',
@@ -101,7 +101,7 @@ const defaultContents = [
   },
   {
     key: 'contact_email',
-    value: 'info@fathemes.com',
+    value: 'info@example.com',
     category: 'footer',
     description: 'ایمیل تماس',
     type: 'text',
@@ -127,7 +127,7 @@ const defaultContents = [
   // Homepage Content
   {
     key: 'hero_title',
-    value: 'خوش آمدید به فروشگاه فاتم',
+    value: 'خوش آمدید به فروشگاه آنلاین',
     category: 'homepage',
     description: 'عنوان اصلی صفحه اول',
     type: 'text',

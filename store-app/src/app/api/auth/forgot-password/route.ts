@@ -136,9 +136,8 @@ async function sendResetLinkToEmail(email: string, usersCollection: any) {
 
     // Create reset URL
     const baseUrl = process.env.NEXTAUTH_URL ||
-                    (process.env.NODE_ENV === 'production'
-                      ? 'https://fathemes.com'
-                      : 'http://localhost:3000');
+                    request.headers.get('origin') ||
+                    'http://localhost:3000';
     const resetUrl = `${baseUrl}/admin/reset-password?token=${resetToken}`;
 
     // Send email with reset link

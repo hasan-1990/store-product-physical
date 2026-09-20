@@ -12,7 +12,7 @@
 ![Express](https://img.shields.io/badge/Express-5.2-000000?style=for-the-badge&logo=express)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)
 
-**🌐 دامین پیش‌فرض:** [fathemes.com](https://fathemes.com)
+**🌐 پشتیبانی از دامنه اختصاصی:** قابلیت اتصال به هر دامنه دلخواه (Custom Domain) و معماری چندمستأجری
 
 [فارسی (Persian)](#-مستندات-جامع-فارسی) • [English Documentation](#-english-documentation)
 
@@ -206,7 +206,7 @@ npm run core:dev
 ```bash
 node create-new-admin.js
 ```
-* **ایمیل:** `admin@fathemes.com`
+* **ایمیل:** `admin@example.com`
 * **رمز عبور:** `Admin@123456`
 * **ورود:** `http://localhost:3000/admin/login`
 
@@ -355,7 +355,7 @@ npm run core:dev
 ```bash
 node create-new-admin.js
 ```
-* **Email:** `admin@fathemes.com`
+* **Email:** `admin@example.com`
 * **Password:** `Admin@123456`
 * **Login URL:** `http://localhost:3000/admin/login`
 
@@ -385,4 +385,4 @@ npm start
 
 ## 📄 License
 This project is licensed under the MIT License.
-Developed with ❤️ by the FaThemes Engineering Team.
+Developed with ❤️ for scalable modern eCommerce.

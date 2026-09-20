@@ -15,7 +15,7 @@ export const coreConfig = {
     return envInt('CORE_SERVER_PORT', 4000);
   },
   get hubDomains(): string {
-    return process.env.HUB_DOMAINS || 'localhost,127.0.0.1,fathemes.com,www.fathemes.com';
+    return process.env.HUB_DOMAINS || 'localhost,127.0.0.1';
   },
   get mongoUri(): string {
     return (

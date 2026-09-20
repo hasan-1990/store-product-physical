@@ -4,14 +4,14 @@ import { buildOrganizationSchema, buildWebSiteSchema } from '@/lib/structured-da
 
 export default async function JsonLdScript() {
   const settings = await getSiteSettings();
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fathemes.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_APP_URL || '';
 
   // استفاده از توابع بهبودیافته Schema
   const organizationSchema = {
     ...buildOrganizationSchema(baseUrl),
     // اضافه کردن اطلاعات دینامیک از تنظیمات
-    "name": settings.site_name || "فاتمز - فروشگاه قالب و افزونه وردپرس",
-    "description": settings.site_description || "خرید قالب و افزونه وردپرس اورجینال با تخفیف ویژه، پشتیبانی رایگان و دانلود نامحدود",
+    "name": settings.site_name || "فروشگاه آنلاین",
+    "description": settings.site_description || "فروشگاه جامع محصولات فیزیکی و دانلودی با پشتیبانی کامل",
     "logo": {
       "@type": "ImageObject",
       "url": `${baseUrl}/logo.png`,

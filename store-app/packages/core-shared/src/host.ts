@@ -11,7 +11,7 @@ export function parseHubDomains(raw?: string): Set<string> {
   const value =
     raw ||
     process.env.HUB_DOMAINS ||
-    'localhost,127.0.0.1,fathemes.com,www.fathemes.com';
+    'localhost,127.0.0.1';
   return new Set(
     value
       .split(',')

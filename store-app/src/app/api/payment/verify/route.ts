@@ -11,8 +11,8 @@ import { connectDB } from '@/lib/mongodb';
  * پشتیبانی از ZarinPal و Zibal
  */
 export async function GET(request: NextRequest) {
-  // استفاده از دامنه اصلی برای redirect به جای request.url
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://fathemes.com';
+  // استفاده از دامنه درخواست یا متغیر محیطی برای redirect
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_APP_URL || request.nextUrl.origin;
   
   try {
     const searchParams = request.nextUrl.searchParams;
