@@ -14,12 +14,24 @@
 
 **🌐 Multi-Tenant & Custom Domain Engine:** Zero-config automated site provisioning for templates and physical goods.
 
-</div>
+---
+
+### 🌐 Select Language / انتخاب زبان
+
+[![](https://img.shields.io/badge/%F0%9F%87%AC%F0%9F%87%A7_English-Documentation-1f6feb?style=for-the-badge)](#english-docs)
+&nbsp;&nbsp;
+[![](https://img.shields.io/badge/%F0%9F%87%AE%F0%9F%87%B7_%D9%85%D8%B3%D8%AA%D9%86%D8%AF%D8%A7%D8%AA_%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-%DA%A9%D9%84%DB%8C%DA%A9_%DA%A9%D9%86%DB%8C%D8%AF-0969DA?style=for-the-badge)](#persian-docs)
 
 ---
 
-<details name="lang">
-<summary><h3>🇮🇷 مستندات جامع به زبان فارسی (برای مشاهده در همین صفحه کلیک کنید)</h3></summary>
+</div>
+
+<details name="lang" id="persian-docs">
+<summary>
+  <img src="https://img.shields.io/badge/%F0%9F%87%AE%F0%9F%87%B7_%D9%85%D8%B3%D8%AA%D9%86%D8%AF%D8%A7%D8%AA_%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-%DA%A9%D9%84%DB%8C%DA%A9_%DA%A9%D9%86%DB%8C%D8%AF-0969DA?style=for-the-badge" alt="مستندات فارسی" />
+  &nbsp;
+  <a href="#persian-docs"><b>🇮🇷 برای مشاهده متن فارسی کلیک کنید (Persian)</b></a>
+</summary>
 
 # 🇮🇷 مستندات جامع فارسی
 
@@ -244,8 +256,12 @@ docker compose up -d --build
 
 </details>
 
-<details name="lang" open>
-<summary><h3>🇬🇧 English Documentation (Default - Click to collapse)</h3></summary>
+<details name="lang" open id="english-docs">
+<summary>
+  <img src="https://img.shields.io/badge/%F0%9F%87%AC%F0%9F%87%A7_English_Docs-Click_to_collapse-1f6feb?style=for-the-badge" alt="English Docs" />
+  &nbsp;
+  <a href="#english-docs"><b>🇬🇧 English Documentation (Click to collapse)</b></a>
+</summary>
 
 ## Table of Contents
 1. [Overview](#1-overview)
