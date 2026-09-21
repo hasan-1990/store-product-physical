@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       // تشخیص اینکه کاربر عادی است یا ادمین
       // اگر isAdmin=true باشه یا اگر کاربر ادمین باشه، از روش لینک استفاده میکنیم
       // در غیر این صورت، کد تایید ارسال میکنیم
-      return await handleEmailReset(body.email, body.isAdmin);
+      return await handleEmailReset(body.email, body.isAdmin, request);
     } else if (body.phone) {
       return await handlePhoneReset(body.phone, body.isAdmin);
     } else {
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
 }
 
 // Handle email-based password reset
-async function handleEmailReset(email: string, isAdmin?: boolean) {
+async function handleEmailReset(email: string, isAdmin?: boolean, request?: NextRequest) {
   try {
     if (!email || !email.trim()) {
       return NextResponse.json(
@@ -96,7 +96,7 @@ async function handleEmailReset(email: string, isAdmin?: boolean) {
 
     if (isUserAdmin || isAdmin) {
       // روش لینک بازیابی (برای ادمین‌ها)
-      return await sendResetLinkToEmail(email, usersCollection);
+      return await sendResetLinkToEmail(email, usersCollection, request);
     } else {
       // روش کد تایید (برای کاربران عادی)
       return await sendVerificationCodeToEmail(email, db);
@@ -111,7 +111,7 @@ async function handleEmailReset(email: string, isAdmin?: boolean) {
 }
 
 // ارسال لینک بازیابی به ایمیل (برای ادمین‌ها)
-async function sendResetLinkToEmail(email: string, usersCollection: any) {
+async function sendResetLinkToEmail(email: string, usersCollection: any, request?: NextRequest) {
   try {
     // Generate reset token
     const resetToken = crypto.randomBytes(32).toString('hex');
@@ -135,8 +135,10 @@ async function sendResetLinkToEmail(email: string, usersCollection: any) {
     );
 
     // Create reset URL
+    const requestOrigin = request?.headers.get('origin') || request?.nextUrl?.origin;
     const baseUrl = process.env.NEXTAUTH_URL ||
-                    request.headers.get('origin') ||
+                    process.env.NEXT_PUBLIC_SITE_URL ||
+                    requestOrigin ||
                     'http://localhost:3000';
     const resetUrl = `${baseUrl}/admin/reset-password?token=${resetToken}`;
 
